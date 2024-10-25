@@ -8,7 +8,8 @@ public class AnchoredPositionsManager : MonoBehaviour // make singleton
 {
     private CollectionOrganiser<RectTransform> _anchoredPositionCollection;
     private RectTransform _startIndex;
-
+    public float horizontalRadius = 100;
+    public float verticalRadius = 100;
     private void Awake()
     {
         _anchoredPositionCollection = new CollectionOrganiser<RectTransform>("AnchoredPosition", transform);
@@ -34,7 +35,7 @@ public class AnchoredPositionsManager : MonoBehaviour // make singleton
         _anchoredPositionCollection.ClearList();
     }
 
-    public void ArrangeAnchoredPositions(int count, float radius)
+    public void ArrangeAnchoredPositions(int count)
     {
         float angleStep = 360f / count; // The angle between each object
         int curCount = _anchoredPositionCollection.DisplayCount;
@@ -43,25 +44,17 @@ public class AnchoredPositionsManager : MonoBehaviour // make singleton
             float angle = i * angleStep; // Calculate the angle for each object
             float angleRad = angle * Mathf.Deg2Rad; // Convert angle to radians
 
-            // Calculate the position of each object
-            float x = Mathf.Cos(angleRad) * radius;
-            float y = Mathf.Sin(angleRad) * radius;
+            // Calculate the position of each object, using different radii for x and y to form an oval
+            float x = Mathf.Cos(angleRad) * horizontalRadius;
+            float y = Mathf.Sin(angleRad) * verticalRadius;
 
             // Set the object's position
-            var anchoredPosition =  _anchoredPositionCollection.AddOrDequeue();
-            anchoredPosition.gameObject.SetActive(true);
-            anchoredPosition.anchoredPosition = new Vector2(x, y);
-            
+            var anchoredObj =  _anchoredPositionCollection.AddOrDequeue();
+            anchoredObj.gameObject.SetActive(true);
+            anchoredObj.anchoredPosition = new Vector2(x, y);
         }
 
         _startIndex = _anchoredPositionCollection.DisplayList[curCount + count-1];
-        _startIndex.gameObject.name = "Start";
     }
     
-}
-
-public class AnchoredDimensions
-{
-    public int startVal;
-    public int endVal;
 }

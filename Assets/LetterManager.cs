@@ -11,14 +11,13 @@ using Random = System.Random;
 
 public class LetterManager : MonoBehaviour
 {
-    public float radius;
+
     private CollectionOrganiser<Letter> _letterCollection;
     public AnchoredPositionsManager apm;
     
-    public static string answerWord;
 
-    public float inSpeed;
-    public float outSpeed;
+
+
     private void Awake()
     {
         _letterCollection = new CollectionOrganiser<Letter>("Letter", transform);
@@ -26,50 +25,34 @@ public class LetterManager : MonoBehaviour
     
     private void Start()
     {
-        Process();
     }
 
 
-    public void SpinWheel()
+    public void SpinWheel(string s)
     {
     
-        List<char> letters = new List<char>(answerWord.ToCharArray());
-        apm.ArrangeAnchoredPositions(letters.Count, radius);
+        List<char> letters = new List<char>(s.ToCharArray());
+        apm.ArrangeAnchoredPositions(letters.Count);
         ProcessLetters(letters);
     }
 
-    public void Process()
+    public void Process(string  s)
     {
-            List<string> words = new List<string>() { "colin", "football", "sexy", "London" };
-            var rand = UnityEngine.Random.Range(0, words.Count);
-            answerWord = words[rand];
-            SpinWheel();
+        
+            SpinWheel(s);
 
     }
     
 
-    public  void SortLetterWheel()
+    public void ClearWheel()
     {
-
-        if (answerWord == string.Empty)
-        {
-            Process();
-        }
-        else
-        {
-            answerWord = string.Empty;
-            ClearWheel();
-        }
-    }
-
-    private void ClearWheel()
-    {
+        Debug.Log("c;ear");
         var count = _letterCollection.DisplayCount;
         int completedSequences = 0;
         for (int i = 0; i < count; i++)
         {
             var letter = _letterCollection.DisplayList[i];
-            MoveThroughPoints(letter, outSpeed,count,null,()=>
+            MoveThroughPoints(letter, LetterWheel.OutSpeed,count,null,()=>
             {
                
                 letter.Deinit();
@@ -96,7 +79,7 @@ public class LetterManager : MonoBehaviour
             char selectedLetter = remainingLetters[randomIndex];
             var letter = GetRandomLetter(selectedLetter);
             letter.transform.position = apm.GetStartIndex().position;
-            MoveThroughPoints(letter, inSpeed,count,() =>
+            MoveThroughPoints(letter, LetterWheel.InSpeed,count,() =>
             {
                 remainingLetters.RemoveAt(randomIndex);
                 ProcessLetters(remainingLetters);
