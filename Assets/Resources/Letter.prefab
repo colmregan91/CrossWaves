@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterChar: 99
+  bg: {fileID: 1735048112394195703}
+  lineRenderer: {fileID: 0}
+  bo: {fileID: 0}
 --- !u!1 &8576032632048737405
 GameObject:
   m_ObjectHideFlags: 0
