@@ -1,0 +1,177 @@
+{
+    "crosswordNumber": 3,
+    "horizontalEntries": [
+        {
+            "StartX": 0,
+            "StartY": 0,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A game played with a bat and ball",
+                "answer": "BASEBALL"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 1,
+            "StartY": 8,
+            "isHorizontal": true,
+            "entry": {
+                "question": "The largest continent on Earth",
+                "answer": "ASIA"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 5,
+            "StartY": 9,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A red gemstone often used in jewelry",
+                "answer": "RUBY"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 0,
+            "StartY": 10,
+            "isHorizontal": true,
+            "entry": {
+                "question": "The main ingredient in bread",
+                "answer": "FLOUR"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 5,
+            "StartY": 11,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A fruit that is often made into raisins",
+                "answer": "GRAPE"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 6,
+            "StartY": 2,
+            "isHorizontal": true,
+            "entry": {
+                "question": "Honey loving animal",
+                "answer": "BEAR"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 6,
+            "StartY": 5,
+            "isHorizontal": true,
+            "entry": {
+                "question": "Source or origin of something ",
+                "answer": "ROOT"
+            },
+            "IsEntryFilled": false
+        }
+    ],
+    "verticalEntries": [
+        {
+            "StartX": 0,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "An animal known for building dams",
+                "answer": "BEAVER"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 2,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A place where you go to learn",
+                "answer": "SCHOOL"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 4,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A round object used in many sports",
+                "answer": "BALL"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 4,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A professional dancer",
+                "answer": "BALLERINA"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 6,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A place where you can borrow books",
+                "answer": "LIBRARY"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 9,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A holiday celebrated on December 25th",
+                "answer": "CHRISTMAS"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 11,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A flying vehicle with wings",
+                "answer": "AIRPLANE"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 1,
+            "StartY": 6,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The opposite of 'big'",
+                "answer": "SMALL"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 7,
+            "StartY": 7,
+            "isHorizontal": false,
+            "entry": {
+                "question": "An animal known for its stripes",
+                "answer": "ZEBRA"
+            },
+            "IsEntryFilled": false
+        },
+        {
+            "StartX": 11,
+            "StartY": 9,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A vehicle used to carry passengers",
+                "answer": "BUS"
+            },
+            "IsEntryFilled": false
+        }
+    ]
+}

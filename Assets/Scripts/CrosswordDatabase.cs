@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [Serializable]
@@ -23,9 +24,10 @@ public class OriginalDatabase
         new CrosswordEntry("What you wear on your feet", "SHOES"),
         new CrosswordEntry("An animal known for its long neck", "GIRAFFE"),
         new CrosswordEntry("The opposite of 'up'", "DOWN"),
+        new CrosswordEntry("A well-known company that makes phones", "APPLE"),
         new CrosswordEntry("The sound a dog makes", "BARK"),
         new CrosswordEntry("A day of the week that starts with 'M'", "MONDAY"),
-        new CrosswordEntry("A fruit that's red and often used in pies", "APPLE"),
+  
         new CrosswordEntry("A soft, white mineral used in pencils", "GRAPHITE"),
         new CrosswordEntry("A metal used to make coins", "COPPER"),
         new CrosswordEntry("A meal typically eaten in the morning", "BREAKFAST"),
@@ -36,7 +38,6 @@ public class OriginalDatabase
         new CrosswordEntry("A large body of saltwater", "OCEAN"),
         new CrosswordEntry("A vehicle with two wheels", "BICYCLE"),
         new CrosswordEntry("The part of a plant that absorbs water", "ROOT"),
-        new CrosswordEntry("A yellow metal used for jewelry", "GOLD"),
         new CrosswordEntry("The opposite of 'start'", "STOP"),
         new CrosswordEntry("The largest planet in our solar system", "JUPITER"),
         new CrosswordEntry("The color of coal", "BLACK"),
@@ -50,7 +51,6 @@ public class OriginalDatabase
         new CrosswordEntry("A holiday celebrated on December 25th", "CHRISTMAS"),
         new CrosswordEntry("The organ used for thinking", "BRAIN"),
         new CrosswordEntry("A place where you go to learn", "SCHOOL"),
-        new CrosswordEntry("A large, gray animal with a trunk", "ELEPHANT"),
         new CrosswordEntry("The smallest US coin", "DIME"),
         new CrosswordEntry("A flying vehicle with wings", "AIRPLANE"),
         new CrosswordEntry("The opposite of 'short'", "TALL"),
@@ -62,16 +62,13 @@ public class OriginalDatabase
         new CrosswordEntry("An animal known for its stripes", "ZEBRA"),
         new CrosswordEntry("A fruit with a hard shell and white inside", "COCONUT"),
         new CrosswordEntry("A hot, dry region with sand", "DESERT"),
-        new CrosswordEntry("The main ingredient in bread", "FLOUR"),
         new CrosswordEntry("A fruit that is often made into raisins", "GRAPE"),
         new CrosswordEntry("The organ used to pump blood", "HEART"),
         new CrosswordEntry("The opposite of 'push'", "PULL"),
-        new CrosswordEntry("A tool used to cut paper", "SCISSORS"),
         new CrosswordEntry("The opposite of 'light'", "DARK"),
-        new CrosswordEntry("A fruit that's orange and round", "ORANGE"),
-        new CrosswordEntry("A long, flowing body of water", "RIVER"),
+
         new CrosswordEntry("An animal known for building dams", "BEAVER"),
-        new CrosswordEntry("A fruit with a fuzzy skin", "PEACH"),
+
         new CrosswordEntry("A person who delivers mail", "POSTMAN"),
         new CrosswordEntry("A shape with four equal sides", "SQUARE"),
         new CrosswordEntry("A fruit that's green and sour", "LIME"),
@@ -94,9 +91,8 @@ public class OriginalDatabase
         new CrosswordEntry("An animal that hops", "FROG"),
         new CrosswordEntry("A fruit with seeds on the outside", "STRAWBERRY"),
         new CrosswordEntry("The opposite of 'weak'", "STRONG"),
-        new CrosswordEntry("A type of bird known for its colorful tail", "PEACOCK"),
-        new CrosswordEntry("The capital city of France", "PARIS"),
-        new CrosswordEntry("A round fruit that's often red", "CHERRY"),
+
+
         new CrosswordEntry("A body of water smaller than a sea", "LAKE"),
         new CrosswordEntry("The number of days in a week", "SEVEN"),
         new CrosswordEntry("The season after summer", "AUTUMN"),
@@ -107,13 +103,12 @@ public class OriginalDatabase
         new CrosswordEntry("A large reptile with a powerful tail", "CROCODILE"),
         new CrosswordEntry("A person who delivers letters", "MAILMAN"),
         new CrosswordEntry("A fruit with a hard pit and fuzzy skin", "PEACH"),
-        new CrosswordEntry("An object used to tell time", "CLOCK"),
         new CrosswordEntry("A long, flowing body of water", "RIVER"),
         new CrosswordEntry("The main ingredient in bread", "FLOUR"),
-        new CrosswordEntry("A large feline known for its roar", "LION"),
+
         new CrosswordEntry("The primary material in a pencil", "WOOD"),
         new CrosswordEntry("A flower commonly associated with love", "ROSE"),
-        new CrosswordEntry("A metal that conducts electricity", "COPPER"),
+
         new CrosswordEntry("A vegetable that's often orange", "CARROT"),
         new CrosswordEntry("An object that keeps you dry in the rain", "UMBRELLA"),
         new CrosswordEntry("The planet known as the 'Red Planet'", "MARS"),
@@ -122,7 +117,6 @@ public class OriginalDatabase
         new CrosswordEntry("The largest mammal on Earth", "WHALE"),
         new CrosswordEntry("A famous clock tower in London", "BIGBEN"),
         new CrosswordEntry("The opposite of 'soft'", "HARD"),
-        new CrosswordEntry("An animal known for its humps", "CAMEL"),
         new CrosswordEntry("The color of a ripe banana", "YELLOW"),
         new CrosswordEntry("A famous wizarding school in the UK", "HOGWARTS"),
         new CrosswordEntry("The season after winter", "SPRING"),
@@ -135,8 +129,7 @@ public class OriginalDatabase
         new CrosswordEntry("A sport played with a racket and ball", "TENNIS"),
         new CrosswordEntry("The season with the longest days", "SUMMER"),
         new CrosswordEntry("A fruit known for its seeds and red flesh", "WATERMELON"),
-        new CrosswordEntry("A large bird known for its colorful tail", "PEACOCK"),
-        new CrosswordEntry("A large mountain range in Asia", "HIMALAYAS"),
+
         new CrosswordEntry("An item worn on the wrist to tell time", "WATCH"),
         new CrosswordEntry("A machine used for baking", "OVEN"),
         new CrosswordEntry("The opposite of 'day'", "NIGHT"),
@@ -150,70 +143,64 @@ public class OriginalDatabase
         new CrosswordEntry("The largest continent on Earth", "ASIA"),
         new CrosswordEntry("A sport played with a hoop and ball", "BASKETBALL"),
         new CrosswordEntry("A tool used to water plants", "HOSE"),
-        new CrosswordEntry("A green amphibian that hops", "FROG"),
         new CrosswordEntry("A person who catches fish", "FISHERMAN"),
         new CrosswordEntry("The opposite of 'north'", "SOUTH"),
-        new CrosswordEntry("A fruit that's green or red and has seeds", "APPLE"),
         new CrosswordEntry("The number of sides on a square", "FOUR"),
         new CrosswordEntry("A winter sport with sleds", "BOBSLEDDING"),
-        new CrosswordEntry("The name of Earth's satellite", "MOON"),
+       
         new CrosswordEntry("An animal that produces wool", "SHEEP"),
         new CrosswordEntry("The capital city of Italy", "ROME"),
         new CrosswordEntry("A game played with pins and a ball", "BOWLING"),
         new CrosswordEntry("A small bird known for its song", "ROBIN"),
         new CrosswordEntry("A structure built over water", "BRIDGE"),
         new CrosswordEntry("A part of the body used for breathing", "LUNG"),
-        new CrosswordEntry("A protective cover for a book", "JACKET"),
+
         new CrosswordEntry("A yellow metal used in jewelry", "GOLD"),
         new CrosswordEntry("A famous bear who loves honey", "POOH"),
-        new CrosswordEntry("A tool used to measure time in hours", "CLOCK"),
-        new CrosswordEntry("A piece of clothing worn on the feet", "SOCK"),
+
+
         new CrosswordEntry("The place where the American president lives", "WHITEHOUSE"),
         new CrosswordEntry("A popular pasta shape", "SPAGHETTI"),
         new CrosswordEntry("A famous tower in Paris", "EIFFEL"),
         new CrosswordEntry("A popular Italian dish", "PIZZA"),
-        new CrosswordEntry("A large, round fruit", "WATERMELON"),
         new CrosswordEntry("A professional dancer", "BALLERINA"),
-        new CrosswordEntry("A large mammal with tusks", "ELEPHANT"),
+
         new CrosswordEntry("A tool used to dig", "SHOVEL"),
         new CrosswordEntry("A famous detective", "SHERLOCK"),
-        new CrosswordEntry("A musical instrument with strings", "GUITAR"),
         new CrosswordEntry("The capital of the United Kingdom", "LONDON"),
-        new CrosswordEntry("A popular fruit that's yellow", "BANANA"),
-        new CrosswordEntry("A country known for its pyramids", "EGYPT"),
+        
         new CrosswordEntry("A popular sport with a ball", "FOOTBALL"),
         new CrosswordEntry("A bird that can mimic sounds", "PARROT"),
         new CrosswordEntry("A precious gemstone", "EMERALD"),
         new CrosswordEntry("A type of cloud", "CUMULUS"),
         new CrosswordEntry("A famous Italian artist", "LEONARDO"),
         new CrosswordEntry("A device used for measuring temperature", "THERMOMETER"),
-        new CrosswordEntry("A country known for its kangaroos", "AUSTRALIA"),
+
         new CrosswordEntry("A well-known American scientist", "EINSTEIN"),
         new CrosswordEntry("A plant with thorns", "ROSEBUSH"),
-        new CrosswordEntry("A colorful bird", "PEACOCK"),
         new CrosswordEntry("A capital city in Japan", "TOKYO"),
         new CrosswordEntry("A place where people go to watch movies", "CINEMA"),
         new CrosswordEntry("A popular music festival", "COACHELLA"),
-        new CrosswordEntry("A famous musician known for his guitar skills", "HENDRIX"),
+
         new CrosswordEntry("A type of fish found in the ocean", "SALMON"),
         new CrosswordEntry("A large bird that cannot fly", "OSTRICH"),
         new CrosswordEntry("A popular video game character", "MARIO"),
-        new CrosswordEntry("A large body of water", "OCEAN"),
+
         new CrosswordEntry("A famous superhero", "SPIDERMAN"),
-        new CrosswordEntry("A popular fruit used in pies", "APPLE"),
+
         new CrosswordEntry("A popular beverage made with tea", "ICEDTEA"),
         new CrosswordEntry("A classic fairy tale character", "CINDERELLA"),
         new CrosswordEntry("A well-known fast food restaurant", "MCDONALDS"),
         new CrosswordEntry("A popular software used for design", "PHOTOSHOP"),
-        new CrosswordEntry("A famous landmark in London", "BIGBEN"),
+
         new CrosswordEntry("A famous American president", "LINCOLN"),
         new CrosswordEntry("A historical building in Athens", "PARTHENON"),
         new CrosswordEntry("A type of seafood", "LOBSTER"),
-        new CrosswordEntry("A large city in Italy", "ROME"),
+
         new CrosswordEntry("A popular beach destination", "HAWAII"),
         new CrosswordEntry("A popular type of pasta", "FETTUCCINE"),
         new CrosswordEntry("A well-known global brand", "NIKE"),
-        new CrosswordEntry("A popular outdoor sport", "BASEBALL"),
+
         new CrosswordEntry("A popular social media platform", "INSTAGRAM"),
         new CrosswordEntry("A type of pastry", "CROISSANT"),
         new CrosswordEntry("A famous river in Egypt", "NILE"),
@@ -227,7 +214,7 @@ public class OriginalDatabase
         new CrosswordEntry("A popular outdoor concert", "FESTIVAL"),
         new CrosswordEntry("A type of tree that produces nuts", "CHESTNUT"),
         new CrosswordEntry("A popular beach activity", "SURFING"),
-        new CrosswordEntry("A famous fruit with a peel", "ORANGE"),
+
         new CrosswordEntry("A type of weather phenomenon", "THUNDERSTORM"),
         new CrosswordEntry("A popular hiking destination", "MOUNTAIN"),
         new CrosswordEntry("A type of bird known for its long neck", "FLAMINGO"),
@@ -235,20 +222,19 @@ public class OriginalDatabase
         new CrosswordEntry("A type of tree that produces apples", "APPLETREE"),
         new CrosswordEntry("A place where you buy food", "STORE"),
         new CrosswordEntry("A famous city known for its canals", "VENICE"),
-        new CrosswordEntry("A country known for its pyramids", "EGYPT"),
+
         new CrosswordEntry("A type of cheese", "MOZZARELLA"),
         new CrosswordEntry("A popular American holiday", "THANKSGIVING"),
         new CrosswordEntry("A popular music genre", "ROCK"),
         new CrosswordEntry("A large building for watching performances", "THEATRE"),
         new CrosswordEntry("A type of tree that produces oranges", "CITRUS"),
         new CrosswordEntry("A popular vacation destination", "CARIBBEAN"),
-        new CrosswordEntry("A common mode of transportation", "BICYCLE"),
         new CrosswordEntry("A place to learn new skills", "WORKSHOP"),
         new CrosswordEntry("A famous inventor", "EDISON"),
         new CrosswordEntry("A type of fish used in sushi", "TUNA"),
-        new CrosswordEntry("A well-known company that makes phones", "APPLE"),
+   
         new CrosswordEntry("A popular vegetable often used in salads", "LETTUCE"),
-        new CrosswordEntry("A famous landmark in London", "BIGBEN"),
+
         new CrosswordEntry("A popular social network", "FACEBOOK"),
         new CrosswordEntry("A large, round fruit", "PUMPKIN"),
         new CrosswordEntry("A country known for its ancient ruins", "GREECE"),
@@ -285,15 +271,14 @@ public class OriginalDatabase
         new CrosswordEntry("A red gemstone often used in jewelry", "RUBY"),
         new CrosswordEntry("A rare, precious metal", "PLATINUM"),
         new CrosswordEntry("A tool used to tie things together", "STRING"),
-        new CrosswordEntry("A famous clock tower in London", "BIGBEN"),
+
         new CrosswordEntry("A popular vacation destination in the Caribbean", "BAHAMAS"),
         new CrosswordEntry("A type of art often painted on canvas", "PAINTING"),
-        new CrosswordEntry("A popular British drink", "TEA"),
+
         new CrosswordEntry("A country famous for kangaroos", "AUSTRALIA"),
         new CrosswordEntry("A bird known for its beautiful song", "NIGHTINGALE"),
         new CrosswordEntry("A large, carnivorous animal found in Africa", "LION"),
         new CrosswordEntry("A popular clothing item for cold weather", "JACKET"),
-        new CrosswordEntry("A country famous for its pyramids", "EGYPT"),
         new CrosswordEntry("A fruit that is also the name of a color", "ORANGE"),
         new CrosswordEntry("A famous art museum in Paris", "LOUVRE"),
         new CrosswordEntry("A famous American musician known for his guitar skills", "HENDRIX"),
@@ -301,9 +286,9 @@ public class OriginalDatabase
         new CrosswordEntry("A large mountain range in Asia", "HIMALAYAS"),
         new CrosswordEntry("A place where you can see animals in their natural environment", "SAFARI"),
         new CrosswordEntry("A famous landmark in Egypt", "GIZA"),
-        new CrosswordEntry("A small, flying insect known for its sting", "BEE"),
+
         new CrosswordEntry("A type of car made by a German manufacturer", "MERCEDES"),
-        new CrosswordEntry("A sweet food often eaten at birthdays", "CAKE"),
+
         new CrosswordEntry("A machine that helps clean your floor", "VACUUM"),
         new CrosswordEntry("A famous Canadian singer", "CELINEDION"),
         new CrosswordEntry("A tall, leafy plant often seen in tropical climates", "PALM"),
@@ -311,11 +296,10 @@ public class OriginalDatabase
         new CrosswordEntry("A musical instrument that is often played in orchestras", "VIOLIN"),
         new CrosswordEntry("A famous ancient civilization", "MAYAN"),
         new CrosswordEntry("A type of bird known for its red feathers", "CARDINAL"),
-        new CrosswordEntry("A common pet that purrs", "CAT"),
+      
         new CrosswordEntry("A famous race car driver", "SCHUMACHER"),
         new CrosswordEntry("A famous national park in the United States", "YELLOWSTONE"),
         new CrosswordEntry("A large, cold region with ice", "POLAR"),
-        new CrosswordEntry("A famous leader who fought for civil rights", "MLK"),
         new CrosswordEntry("A famous American actress", "MERYLSTREEP"),
         new CrosswordEntry("A famous island in the Caribbean", "CUBA"),
         new CrosswordEntry("A country famous for sushi", "JAPAN"),
@@ -337,36 +321,33 @@ public class OriginalDatabase
         new CrosswordEntry("A famous mythological creature from Greek mythology", "MINOTAUR"),
         new CrosswordEntry("A famous historical figure from ancient Greece", "SOCRATES"),
         new CrosswordEntry("A bird known for its beautiful feathers", "PEACOCK"),
-        new CrosswordEntry("A popular type of clothing", "JACKET"),
-        new CrosswordEntry("A colorful tropical bird", "PARROT"),
-        new CrosswordEntry("A place where you go to watch movies", "CINEMA"),
         
-        
-        new CrosswordEntry("A vehicle used to carry passengers", "BUS"),
-        new CrosswordEntry("A type of bird that can't fly", "EMU"),
+        new CrosswordEntry("A popular fruit used in pies", "APPLE"),
+        new CrosswordEntry("A metal that conducts electricity", "COPPER"),
         new CrosswordEntry("Short for an evening event", "GALA"),
-        new CrosswordEntry("A common type of meat", "HAM"),
+
         new CrosswordEntry("A basic light source", "LAMP"),
         new CrosswordEntry("A quick way to enter water", "DIVE"),
-        new CrosswordEntry("A pet that meows", "CAT"),
-        new CrosswordEntry("Usually eaten for breakfast as bacon ", "Ham"),
+        new CrosswordEntry("A type of flooring material", "TILE"),
+        new CrosswordEntry("The number after two", "THREE"),
+        new CrosswordEntry("To seize quickly", "GRAB"),
+        new CrosswordEntry("A formal military attack", "RAID"),
+        new CrosswordEntry("A warm covering for feet", "SOCK"),
+        //  3 LETTER START
+        new CrosswordEntry("A vehicle used to carry passengers", "BUS"),
+        new CrosswordEntry("A popular British drink", "TEA"),
+        new CrosswordEntry("A type of bird that can't fly", "EMU"),
+        new CrosswordEntry("A common type of meat", "HAM"),
         new CrosswordEntry("An exclamation of surprise", "WOW"),
         new CrosswordEntry("A sound made by a cow", "MOO"),
         new CrosswordEntry("A sticky substance from trees", "SAP"),
-        new CrosswordEntry("A type of flooring material", "TILE"),
-        new CrosswordEntry("The number after two", "THREE"),
-        new CrosswordEntry("A drink often served cold", "TEA"),
-        new CrosswordEntry("To seize quickly", "GRAB"),
-        new CrosswordEntry("A formal military attack", "RAID"),
         new CrosswordEntry("An informal word for a male sibling", "BRO"),
         new CrosswordEntry("A small rodent", "RAT"),
-        new CrosswordEntry("A warm covering for feet", "SOCK"),
+        new CrosswordEntry("A common pet that purrs", "CAT"),
         new CrosswordEntry("A tool used for cutting", "AXE"),
         new CrosswordEntry("The start of a musical scale", "DOH"),
-        new CrosswordEntry("A fruit with a fuzzy skin", "PEACH"),
         new CrosswordEntry("A short sleep", "NAP"),
-        new CrosswordEntry("A sharp kitchen tool", "AXE"),
-        new CrosswordEntry("An outdoor game similar to baseball", "BALL"),
+        new CrosswordEntry("A small, flying insect known for its sting", "BEE"),
         new CrosswordEntry("The opposite of dry", "WET"),
     };
 }
@@ -375,6 +356,7 @@ public class OriginalDatabase
 [Serializable]
 public class CrosswordStructure
 {
+    public int crosswordNumber;
     public List<CrosswordEntryPositional> horizontalEntries = new List<CrosswordEntryPositional>();
     public List<CrosswordEntryPositional> verticalEntries = new List<CrosswordEntryPositional>();
 }
@@ -386,7 +368,7 @@ public class CrosswordEntryPositional
     public int StartX, StartY;
     public bool isHorizontal;
     public CrosswordEntry entry;
-    public bool IsComplete = false;
+     public bool IsEntryFilled;
 }
 
 

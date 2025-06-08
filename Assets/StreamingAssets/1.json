@@ -1,0 +1,177 @@
+{
+    "crosswordNumber": 1,
+    "horizontalEntries": [
+        {
+            "StartX": 0,
+            "StartY": 0,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A metal used to make coins",
+                "answer": "COPPER"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 7,
+            "StartY": 0,
+            "isHorizontal": true,
+            "entry": {
+                "question": "The color of coal",
+                "answer": "BLACK"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 6,
+            "StartY": 3,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A basic light source",
+                "answer": "LAMP"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 0,
+            "StartY": 6,
+            "isHorizontal": true,
+            "entry": {
+                "question": "The opposite of 'short'",
+                "answer": "TALL"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 8,
+            "StartY": 9,
+            "isHorizontal": true,
+            "entry": {
+                "question": "To seize quickly",
+                "answer": "GRAB"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 2,
+            "StartY": 11,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A vehicle with two wheels",
+                "answer": "BICYCLE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 5,
+            "StartY": 6,
+            "isHorizontal": true,
+            "entry": {
+                "question": "begin",
+                "answer": "START"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 0,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A piece of furniture for sitting",
+                "answer": "CHAIR"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 2,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A flat, round object used for eating",
+                "answer": "PLATE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 4,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A famous tower in Paris",
+                "answer": "EIFFEL"
+            },
+            "IsEntryFilled": true
+        }
+    ],
+    "verticalEntries": [
+        {
+            "StartX": 7,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A meal typically eaten in the morning",
+                "answer": "BREAKFAST"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 9,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A place where planes take off and land",
+                "answer": "AIRPORT"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 11,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The core, central, or most essential part of something",
+                "answer": "KERNEL"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 1,
+            "StartY": 5,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A tool used to hit nails",
+                "answer": "HAMMER"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 3,
+            "StartY": 6,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A body of water smaller than a sea",
+                "answer": "LAKE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 5,
+            "StartY": 6,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The opposite of 'start'",
+                "answer": "STOP"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 10,
+            "StartY": 7,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The organ used for thinking",
+                "answer": "BRAIN"
+            },
+            "IsEntryFilled": true
+        }
+    ]
+}

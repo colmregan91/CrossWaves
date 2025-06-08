@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ public class CrosswordGenerator : MonoBehaviour
 
     private int MaxGridX = 12;
     private int MaxGridY = 12;
-    private int MaxHorzAndVert = 10;
+    public const int MaxHorzAndVert = 12;
 
     public List<CrosswordEntryPositional> UsedHorizontalEntries = new List<CrosswordEntryPositional>();
     public List<CrosswordEntryPositional> UsedVerticalEntries = new List<CrosswordEntryPositional>();
@@ -21,37 +22,36 @@ public class CrosswordGenerator : MonoBehaviour
 
     public List<string> usedAnswers = new List<string>();
 
-    private void Start()
-    {
-        CrosswordEntryBase = new CrosswordDatabase();
-        var crossOrig = new OriginalDatabase();
-
-        var seen = new List<string>();
-        bool can = true;
-        for (int i = 0; i < crossOrig.crosswordEntries.Count; i++)
-        {
-            if (seen.Contains(crossOrig.crosswordEntries[i].answer))
-            {
-                can = false;
-                Debug.LogError($"{crossOrig.crosswordEntries[i].answer} appears twice");
-            }
-            else
-            {
-                seen.Add(crossOrig.crosswordEntries[i].answer);
-            }
-        }
-
-        // if (can)
-        // {
-        CrosswordEntryBase.Entries = crossOrig.crosswordEntries;
-        CrosswordUtils.WriteNewDatabaseToFile(CrosswordEntryBase);
-        // }
-        // else
-        // {
-        //     Debug.LogError($"needs recheck");
-        // }
-    }
-
+    // private void Start()
+    // {
+    //     CrosswordEntryBase = new CrosswordDatabase();
+    //     var crossOrig = new OriginalDatabase();
+    //
+    //     var seen = new List<string>();
+    //     bool can = true;
+    //     for (int i = 0; i < crossOrig.crosswordEntries.Count; i++)
+    //     {
+    //         if (seen.Contains(crossOrig.crosswordEntries[i].answer))
+    //         {
+    //             can = false;
+    //             Debug.LogError($"{crossOrig.crosswordEntries[i].answer} appears twice");
+    //         }
+    //         else
+    //         {
+    //             seen.Add(crossOrig.crosswordEntries[i].answer);
+    //         }
+    //     }
+    //
+    //     // if (can)
+    //     // {
+    //     CrosswordEntryBase.Entries = crossOrig.crosswordEntries;
+    //     CrosswordUtils.WriteNewDatabaseToFile(CrosswordEntryBase);
+    //     // }
+    //     // else
+    //     // {
+    //     //     Debug.LogError($"needs recheck");
+    //     // }
+    // }
 
     public void TryFit()
     {
@@ -59,53 +59,45 @@ public class CrosswordGenerator : MonoBehaviour
 
         // Try to place the word in each cell in both orientations
         for (int y = 0; y < grid.GetLength(1) && !wordPlaced; y++)
-        {
+        {   
             for (int x = 0; x < grid.GetLength(0) && !wordPlaced; x++)
-            {
+            {    
                 if (grid[x, y].IsSelected == false)
                 {
                     continue;
                 }
                 // Check if the word can fit horizontally
-
+          
                 if (CanFitWord(AttemptToFit.answer, x, y, true) && !usedAnswers.Contains(AttemptToFit.answer) && UsedHorizontalEntries.Count() < MaxHorzAndVert)
                 {
-                    if (AttemptToFit.question == string.Empty)
-                    {
-                        Debug.Log("it fits, enter question.");
-                        return;
-                    }
 
                     wordPlaced = true;
 
                     CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
                     {
-                        StartX = x, StartY = y, isHorizontal = true, entry = AttemptToFit,
+                        StartX = x, StartY = y, isHorizontal = true, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer)
                     };
                     PlaceWord(newEntryData);
-                    //     grid[x, y].SetCell(newEntryData);
                     UsedHorizontalEntries.Add(newEntryData);
+                    Debug.Log($"placed at {newEntryData.StartX}, {newEntryData.StartY} ");
+                    grid[x, y].Unselect();
                 }
                 // If not, try fitting it vertically
                 else
                 {
                     if (CanFitWord(AttemptToFit.answer, x, y, false) && !usedAnswers.Contains(AttemptToFit.answer) && UsedHorizontalEntries.Count() < MaxHorzAndVert)
                     {
-                        if (AttemptToFit.question == string.Empty)
-                        {
-                            Debug.Log("it fits, enter question.");
-                            return;
-                        }
-
+                        
                         wordPlaced = true;
 
                         CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
                         {
-                            StartX = x, StartY = y, isHorizontal = false, entry = AttemptToFit,
+                            StartX = x, StartY = y, isHorizontal = false, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer),
                         };
                         PlaceWord(newEntryData);
-                        //   grid[x, y].Init(newEntryData);
                         UsedVerticalEntries.Add(newEntryData);
+                        Debug.Log($"placed at {newEntryData.StartX}, {newEntryData.StartY} ");
+                        grid[x, y].Unselect();
                     }
                 }
             }
@@ -301,7 +293,7 @@ public class CrosswordGenerator : MonoBehaviour
         }
         else
         {
-            if (startY + length > maxY)
+            if (startY + length > maxY+1)
             {
                 Debug.LogWarning($"{word} exceeds the grid's maximum width {startY + length} is greater than {maxY}");
                 return false;

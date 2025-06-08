@@ -21,6 +21,8 @@ public class FloatedLetters : MonoBehaviour
 
     public void Pulsate(int index,CrosswordGridEntry entry, Action callback)
     {
+        bool wasShowing = entry.isShowing;
+        entry.SetShowing(true);
         transform.transform.DOScale(pulseScale, pulseDuration).SetEase(Ease.OutSine) // Smooth scaling up
             .SetDelay(index * delayBetween) // Add delay for staggered effect
             .OnComplete(() =>
@@ -29,6 +31,13 @@ public class FloatedLetters : MonoBehaviour
                 // Scale back down
                 transform.transform.DOScale(1f, pulseDuration).SetEase(Ease.InSine).OnComplete(() =>
                 {
+
+                    if (wasShowing)
+                    {
+                        callback?.Invoke();
+                        return;
+                    }
+                    
                     Float(entry, callback);
                 }
 

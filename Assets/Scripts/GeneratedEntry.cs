@@ -16,14 +16,13 @@ public class GeneratedEntry : CrosswordGridEntry
     
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if (HasLetter == false)
-        {
-            return;
-        }
-
-
-
         selImg.enabled = !selImg.enabled;
+    }
+    
+    public void Unselect()
+    {
+        selImg.enabled = false;
+
     }
 
     public override void TurnOffGridElement()

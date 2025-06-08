@@ -34,7 +34,7 @@ public class LetterWheel : MonoSingleton<LetterWheel>
         
         curLm.ClearWheel();
 
-        if (entryData.IsComplete)
+        if (entryData.IsEntryFilled)
         {
             answerWord = string.Empty;
             return;
@@ -74,7 +74,7 @@ public class LetterWheel : MonoSingleton<LetterWheel>
         return lm1.isSpinning == true || lm2.isSpinning == true;
     }
 
-    private void ClearWheel()
+    public void ClearWheel()
     {
         curLm.UnselectLetters();
         curLm.ClearWheel();

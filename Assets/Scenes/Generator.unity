@@ -3647,6 +3647,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4849382385578871197}
     m_Modifications:
+    - target: {fileID: 4151194954587432296, guid: a8d0ff7803ff25c489a9d0205c1e8877, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.997284
+      objectReference: {fileID: 0}
     - target: {fileID: 5531782164035948710, guid: a8d0ff7803ff25c489a9d0205c1e8877, type: 3}
       propertyPath: m_Name
       value: CrossWord
@@ -7883,7 +7887,7 @@ MonoBehaviour:
   UsedHorizontalEntries: []
   UsedVerticalEntries: []
   AttemptToFit:
-    question: ositioned below something else
+    question: 
     answer: UNDER
   usedAnswers: []
 --- !u!224 &961403523 stripped

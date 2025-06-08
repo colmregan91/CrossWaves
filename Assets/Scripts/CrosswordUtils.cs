@@ -9,18 +9,27 @@ public static class CrosswordUtils
     static string CrosswordsPath => Path.Combine(Application.persistentDataPath, "Crosswords");
     static string DatabasePath => Path.Combine(Application.persistentDataPath, "CrosswordDatabase.json");
     
-    public static string GetCrosswordPath()
+    
+    public static string GetCrosswordPath(int number)
     {
-        string[] files = Directory.GetFiles(CrosswordsPath);
-        string NewCrosswordPath = Path.Combine(Application.persistentDataPath, $"Crosswords/{files.Length + 1}.json");
-        Debug.Log(NewCrosswordPath);
+
+        string NewCrosswordPath = Path.Combine(Application.persistentDataPath, $"Crosswords/{number}.json");
         return NewCrosswordPath;
+    }
+
+    public static void SaveProgress(int num, List<CrosswordEntryPositional> progress)
+    {
+        CrosswordStructure newCrosswordStructure = new CrosswordStructure() {crosswordNumber = num, horizontalEntries = progress.Take(10).ToList(), verticalEntries = progress.Skip(10).ToList() };
+        var json = JsonUtility.ToJson(newCrosswordStructure, true);
+
+        File.WriteAllText($"{CrosswordsPath}/{num}.json", json);
+
     }
 
     public static  CrosswordStructure LoadCrosswordFromFile(string num)
     {
 
-        string json = File.ReadAllText(Path.Combine(CrosswordsPath, num));
+        string json = File.ReadAllText(Path.Combine(CrosswordsPath, num)); // pull from resources
         CrosswordStructure crossword = JsonUtility.FromJson<CrosswordStructure>(json); 
         
         return crossword; 
@@ -38,13 +47,15 @@ public static class CrosswordUtils
     public static void WriteNewCrosswordToFile(CrosswordStructure newCrossword)
     {
         var json = JsonUtility.ToJson(newCrossword, true);
-        File.WriteAllText(GetCrosswordPath(), json);
+        File.WriteAllText(GetCrosswordPath(newCrossword.crosswordNumber), json);
     }
     
     
     public static void SaveNewCrossword(List<CrosswordEntryPositional> horizontal,List<CrosswordEntryPositional> vertical )
     {
-        CrosswordStructure newCrosswordStructure = new CrosswordStructure() { horizontalEntries = horizontal, verticalEntries = vertical };
+        string[] files = Directory.GetFiles(CrosswordsPath);
+        CrosswordStructure newCrosswordStructure = new CrosswordStructure() {crosswordNumber = files.Length + 1, horizontalEntries = horizontal, verticalEntries = vertical };
+        
         WriteNewCrosswordToFile(newCrosswordStructure);
 
 
@@ -82,4 +93,17 @@ public static class CrosswordUtils
         var json = JsonUtility.ToJson(newDatabase, true);
         File.WriteAllText(DatabasePath, json);
     }
+    
+    // public static   List<bool>  ReadProgressFromFile()
+    // {
+    //     string json = File.ReadAllText(ProgressPath);
+    //     List<bool> crosswordProgress = JsonUtility.FromJson< List<bool>>(json);
+    //     return crosswordProgress;
+    // }
+    //
+    // public static bool IsThereProgress(int num)
+    // {
+    //     return File.Exists(ProgressPath);
+    // }
+    
 }

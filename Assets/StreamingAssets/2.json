@@ -1,0 +1,207 @@
+{
+    "crosswordNumber": 2,
+    "horizontalEntries": [
+        {
+            "StartX": 0,
+            "StartY": 0,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A small, winged insect that sucks blood",
+                "answer": "MOSQUITO"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 8,
+            "StartY": 1,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A type of fish used in sushi",
+                "answer": "TUNA"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 4,
+            "StartY": 2,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A popular type of cheese from France",
+                "answer": "BRIE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 8,
+            "StartY": 3,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A famous landmark in Egypt",
+                "answer": "GIZA"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 1,
+            "StartY": 4,
+            "isHorizontal": true,
+            "entry": {
+                "question": "The opposite of 'early'",
+                "answer": "LATE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 0,
+            "StartY": 7,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A famous historical figure from ancient Greece",
+                "answer": "SOCRATES"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 2,
+            "StartY": 9,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A shape with eight sides",
+                "answer": "OCTAGON"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 9,
+            "StartY": 10,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A popular British drink",
+                "answer": "TEA"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 4,
+            "StartY": 11,
+            "isHorizontal": true,
+            "entry": {
+                "question": "A small, flying insect known for its sting",
+                "answer": "BEE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 0,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A light source in the sky at night",
+                "answer": "MOON"
+            },
+            "IsEntryFilled": true
+        }
+    ],
+    "verticalEntries": [
+        {
+            "StartX": 2,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A day of the week that starts with 'S'",
+                "answer": "SUNDAY"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 4,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "An object that keeps you dry in the rain",
+                "answer": "UMBRELLA"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 6,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A shape with three sides",
+                "answer": "TRIANGLE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 9,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The largest planet in our solar system",
+                "answer": "JUPITER"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 11,
+            "StartY": 0,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A fruit that's long and yellow",
+                "answer": "BANANA"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 0,
+            "StartY": 5,
+            "isHorizontal": false,
+            "entry": {
+                "question": "A machine used to wash clothes",
+                "answer": "WASHER"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 2,
+            "StartY": 7,
+            "isHorizontal": false,
+            "entry": {
+                "question": "An object used to tell time",
+                "answer": "CLOCK"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 5,
+            "StartY": 7,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The process of buying and selling goods",
+                "answer": "TRADE"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 7,
+            "StartY": 7,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The opposite of 'fast'",
+                "answer": "SLOW"
+            },
+            "IsEntryFilled": true
+        },
+        {
+            "StartX": 10,
+            "StartY": 7,
+            "isHorizontal": false,
+            "entry": {
+                "question": "The smallest US coin",
+                "answer": "DIME"
+            },
+            "IsEntryFilled": true
+        }
+    ]
+}

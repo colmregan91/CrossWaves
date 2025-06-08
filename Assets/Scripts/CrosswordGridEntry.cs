@@ -13,7 +13,7 @@ public class CrosswordGridEntry : ClickHandlers
     [SerializeField] protected Image selImg;
     [SerializeField] protected Image img;
     public CrosswordEntryPositional entryInfo;
-    
+    [SerializeField] protected Image individuallySelectedImage;
 
     public TextMeshProUGUI textField;
 
@@ -23,8 +23,8 @@ public class CrosswordGridEntry : ClickHandlers
 
     public bool isShowing;
     public bool IsSelected => selImg.enabled == true;
-    
-    
+
+
     public override void OnPointerDown(PointerEventData eventData)
     {
         if (HasLetter == false)
@@ -32,24 +32,23 @@ public class CrosswordGridEntry : ClickHandlers
             return;
         }
 
-        if ( selImg.enabled)
+        CrosswordManager.Instance.UpdateCurSelected(this);
+
+        if (selImg.enabled)
         {
             return;
         }
 
-        Select();
-        CrosswordManager.Instance.SelectClickedtWord(entryInfo);
+        CrosswordManager.Instance.SelectClickedtWord(entryInfo, this);
     }
-    
+
     public bool GetShowing()
     {
-
         return isShowing;
     }
-    
+
     public void SetShowing(bool val)
     {
-
         isShowing = val;
     }
 
@@ -59,6 +58,7 @@ public class CrosswordGridEntry : ClickHandlers
         img.enabled = false;
         textField.color = Color.white;
         textField.text = letterAtCell.ToString();
+        SetShowing(true);
     }
 
     public virtual void SetCell(char text, CrosswordEntryPositional info)
@@ -66,23 +66,40 @@ public class CrosswordGridEntry : ClickHandlers
         entryInfo = info;
         HasLetter = true;
         letterAtCell = text;
-        
     }
+
     public void Reset()
     {
         HasLetter = false;
         letterAtCell = ' ';
         textField.text = String.Empty;
         img.enabled = true;
+        completeImg.enabled = false;
+        individuallySelectedImage.enabled = false;
+        selImg.enabled = false;
+        SetShowing(false);
+        
     }
+
     public void Select()
     {
         selImg.enabled = true;
     }
-    
+
+    public void SelectIndividual()
+    {
+        individuallySelectedImage.enabled = true;
+    }
+
+    public void UnSelectIndividual()
+    {
+        individuallySelectedImage.enabled = false;
+    }
+
     public void Unselect()
     {
         selImg.enabled = false;
+        individuallySelectedImage.enabled = false;
     }
 
     public char GetCell()
@@ -97,5 +114,4 @@ public class CrosswordGridEntry : ClickHandlers
         letterAtCell = ' ';
         textField.text = string.Empty;
     }
-
 }

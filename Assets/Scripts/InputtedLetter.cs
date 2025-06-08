@@ -10,7 +10,8 @@ public class InputtedLetter : MonoBehaviour
     private TextMeshProUGUI _letterText;
     private Image bg;
     public bool isShowing => _letterText.enabled == true;
-    private char letter;
+    private char CorrectLetter;
+    private char Inputtedletter;
     private void Awake()
     {
         _letterText = GetComponentInChildren<TextMeshProUGUI>();
@@ -19,8 +20,27 @@ public class InputtedLetter : MonoBehaviour
 
     public char GetLetter()
     {
-        return letter;
+        return CorrectLetter;
 
+    }
+    
+    public char GetInputtedLetter()
+    {
+        return Inputtedletter;
+
+    }
+
+    public void InitInputtedLetter(char inputLetter, bool show)
+    {
+        CorrectLetter = inputLetter;
+
+        if (show)
+        {
+            ShowCorrectLetter();
+        }else
+        {
+            HideLetter();
+        }
     }
 
     public void ToggleBg(bool val)
@@ -33,17 +53,24 @@ public class InputtedLetter : MonoBehaviour
     
     public void HideLetter()
     {
+   
         ToggleBg(true);
         _letterText.text = string.Empty;
 
     }
-
-    public void ShowLetter(char inputLetter)
+    public void ShowCorrectLetter()
     {
+        Inputtedletter = CorrectLetter;
         ToggleBg(true);
-        letter = inputLetter;
-        _letterText.text = inputLetter.ToString();
-  
+        _letterText.text = CorrectLetter.ToString();
+        _letterText.enabled = true;
+    }
+
+    public void ShowLetter(char letter)
+    {
+        Inputtedletter = letter;
+        ToggleBg(true);
+        _letterText.text = letter.ToString();
         _letterText.enabled = true;
     }
 
