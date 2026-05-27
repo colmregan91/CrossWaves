@@ -24,7 +24,7 @@ public class CrosswordCanvasParent : BaseCanvasParent
     {
         base.OnInActive();
         DOTween.KillAll(true);
-        CrosswordUtils.SaveProgress(CrosswordManager.Instance.GetCurrentCrosswordNumber(), CrosswordManager.Instance.getQuestions());
+        CrosswordUtils.SaveProgress(CrosswordManager.Instance.GetCurrentDifficulty(), CrosswordManager.Instance.GetCurrentCrosswordNumber(), CrosswordManager.Instance.getQuestions());
         LetterInputManager.Instance.ClearLetters(); // need to wait unti floated letters colletion is empty
         LetterWheel.Instance.ClearWheel();
         CrosswordManager.Instance.ClearCrossword();
@@ -36,7 +36,7 @@ public class CrosswordCanvasParent : BaseCanvasParent
 
         if (isCurrentCanvas)
         {
-            CrosswordUtils.SaveProgress(CrosswordManager.Instance.GetCurrentCrosswordNumber(), CrosswordManager.Instance.getQuestions());
+            CrosswordUtils.SaveProgress(CrosswordManager.Instance.GetCurrentDifficulty(), CrosswordManager.Instance.GetCurrentCrosswordNumber(), CrosswordManager.Instance.getQuestions());
         }
        
     }

@@ -53,21 +53,34 @@ public class SelectCrosswordCanvasParent : BaseCanvasParent
         SetUpCanvas(_letterGroup);
     }
 
+    private static string DifficultyKey(CrosswordsDifficulty d) => d switch
+    {
+        CrosswordsDifficulty.Easy         => "easy",
+        CrosswordsDifficulty.Intermediate => "intermediate",
+        CrosswordsDifficulty.Hard         => "hard",
+        CrosswordsDifficulty.VeryHard     => "veryhard",
+        CrosswordsDifficulty.Themed       => "themed",
+        CrosswordsDifficulty.Letter       => "letter",
+        _                                 => "easy"
+    };
+
     private void SetUpCanvas(CanvasGroup group)
     {
-        var itemGroup = CanvasGroups[group].Items;
+        var settings = CanvasGroups[group];
+        var itemGroup = settings.Items;
+        string key = DifficultyKey(settings.Difficulty);
+
         for (var index = 0; index < itemGroup.Length; index++)
         {
             var cw = itemGroup[index];
-            if (CanvasGroups[group].Difficulty == CrosswordsDifficulty.Easy)
+            if (settings.Difficulty == CrosswordsDifficulty.Easy)
             {
-                cw.Init(CanvasGroups[group].Color, index+1, index > 2);
+                cw.Init(settings.Color, key, index + 1, index > 2);
             }
             else
             {
-                cw.Init(CanvasGroups[group].Color, index+1, true);
+                cw.Init(settings.Color, key, index + 1, true);
             }
-   
         }
     }
 

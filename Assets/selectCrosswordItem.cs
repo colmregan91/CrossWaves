@@ -17,13 +17,15 @@ public class selectCrosswordItem : ClickHandlers
     [SerializeField] private TextMeshProUGUI  progressText;
     private CrosswordStructure structure;
     private int crosswordNumber;
+    private string difficulty;
     private bool isLocked => lockImage.gameObject.activeSelf;
     private bool isComplete;
 
     public bool ShouldUpdate => !isLocked && !isComplete;
 
-    public void Init(Color difficultyColor,int number, bool isLocked)
+    public void Init(Color difficultyColor, string difficultyKey, int number, bool isLocked)
     {
+        difficulty = difficultyKey;
         SetDifficultyColor(difficultyColor);
         SetNumber(number);
         if (isLocked)
@@ -33,7 +35,6 @@ public class selectCrosswordItem : ClickHandlers
         else
         {
             Unlock();
-            SetStructure();
         }
     }
 
@@ -43,8 +44,8 @@ public class selectCrosswordItem : ClickHandlers
     }
 
     public void SetStructure()
-    { 
-        structure = CrosswordUtils.LoadCrosswordFromFile($"{crosswordNumber}.json");
+    {
+        structure = CrosswordUtils.LoadCrosswordFromFile(difficulty, crosswordNumber);
         var horzFilled = structure.horizontalEntries.Select(t => t.IsEntryFilled);
         var vertFilled = structure.verticalEntries.Select(t => t.IsEntryFilled);
         var totalHorz = horzFilled.Count();
@@ -69,7 +70,7 @@ public class selectCrosswordItem : ClickHandlers
             return;
         }
 
-        CrosswordManager.Instance.GenerateCrossword(structure,isComplete);
+        CrosswordManager.Instance.GenerateCrossword(structure, isComplete, difficulty);
         CanvasManager.Instance.GoToCanvas<CrosswordCanvasParent>();
     }
     

@@ -1,401 +1,359 @@
-using System;
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class CrosswordGenerator : MonoBehaviour
 {
     public CrosswordDatabase CrosswordEntryBase;
-
     public static List<CrosswordEntry> AllEntries = new List<CrosswordEntry>();
 
     public GeneratedEntry[,] grid;
 
-    private int MaxGridX = 12;
-    private int MaxGridY = 12;
-    public const int MaxHorzAndVert = 12;
+    private int MaxGridX = 13;
+    private int MaxGridY = 13;
+    private const int MinWordCount = 12;
+    private int minHWords = 12;
+    private int minVWords = 12;
 
     public List<CrosswordEntryPositional> UsedHorizontalEntries = new List<CrosswordEntryPositional>();
     public List<CrosswordEntryPositional> UsedVerticalEntries = new List<CrosswordEntryPositional>();
 
     public CrosswordEntry AttemptToFit;
+    private HashSet<string> usedAnswers = new HashSet<string>();
+    public string SelectedDifficulty = "easy";
+    public int CrosswordsToGenerate = 10;
 
-    public List<string> usedAnswers = new List<string>();
+    private Dictionary<char, List<(int x, int y)>> letterCells = new Dictionary<char, List<(int x, int y)>>();
 
-    // private void Start()
-    // {
-    //     CrosswordEntryBase = new CrosswordDatabase();
-    //     var crossOrig = new OriginalDatabase();
-    //
-    //     var seen = new List<string>();
-    //     bool can = true;
-    //     for (int i = 0; i < crossOrig.crosswordEntries.Count; i++)
-    //     {
-    //         if (seen.Contains(crossOrig.crosswordEntries[i].answer))
-    //         {
-    //             can = false;
-    //             Debug.LogError($"{crossOrig.crosswordEntries[i].answer} appears twice");
-    //         }
-    //         else
-    //         {
-    //             seen.Add(crossOrig.crosswordEntries[i].answer);
-    //         }
-    //     }
-    //
-    //     // if (can)
-    //     // {
-    //     CrosswordEntryBase.Entries = crossOrig.crosswordEntries;
-    //     CrosswordUtils.WriteNewDatabaseToFile(CrosswordEntryBase);
-    //     // }
-    //     // else
-    //     // {
-    //     //     Debug.LogError($"needs recheck");
-    //     // }
-    // }
-
+    // Manual editor tool: select a cell, assign AttemptToFit, click TryFit
     public void TryFit()
     {
         bool wordPlaced = false;
-
-        // Try to place the word in each cell in both orientations
         for (int y = 0; y < grid.GetLength(1) && !wordPlaced; y++)
-        {   
+        {
             for (int x = 0; x < grid.GetLength(0) && !wordPlaced; x++)
-            {    
-                if (grid[x, y].IsSelected == false)
-                {
-                    continue;
-                }
-                // Check if the word can fit horizontally
-          
-                if (CanFitWord(AttemptToFit.answer, x, y, true) && !usedAnswers.Contains(AttemptToFit.answer) && UsedHorizontalEntries.Count() < MaxHorzAndVert)
-                {
+            {
+                if (!grid[x, y].IsSelected) continue;
 
+                if (CanFitWord(AttemptToFit.answer, x, y, true, false)
+                    && !usedAnswers.Contains(AttemptToFit.answer)
+                    && UsedHorizontalEntries.Count < MinWordCount)
+                {
                     wordPlaced = true;
-
-                    CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
-                    {
-                        StartX = x, StartY = y, isHorizontal = true, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer)
-                    };
-                    PlaceWord(newEntryData);
-                    UsedHorizontalEntries.Add(newEntryData);
-                    Debug.Log($"placed at {newEntryData.StartX}, {newEntryData.StartY} ");
+                    var entry = new CrosswordEntryPositional { StartX = x, StartY = y, isHorizontal = true, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer) };
+                    PlaceWord(entry);
+                    UsedHorizontalEntries.Add(entry);
+                    usedAnswers.Add(AttemptToFit.answer);
+                    CrosswordUtils.AddEntryToDatabase(AttemptToFit);
                     grid[x, y].Unselect();
                 }
-                // If not, try fitting it vertically
-                else
+                else if (CanFitWord(AttemptToFit.answer, x, y, false, false)
+                    && !usedAnswers.Contains(AttemptToFit.answer)
+                    && UsedVerticalEntries.Count < MinWordCount)
                 {
-                    if (CanFitWord(AttemptToFit.answer, x, y, false) && !usedAnswers.Contains(AttemptToFit.answer) && UsedHorizontalEntries.Count() < MaxHorzAndVert)
-                    {
-                        
-                        wordPlaced = true;
-
-                        CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
-                        {
-                            StartX = x, StartY = y, isHorizontal = false, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer),
-                        };
-                        PlaceWord(newEntryData);
-                        UsedVerticalEntries.Add(newEntryData);
-                        Debug.Log($"placed at {newEntryData.StartX}, {newEntryData.StartY} ");
-                        grid[x, y].Unselect();
-                    }
+                    wordPlaced = true;
+                    var entry = new CrosswordEntryPositional { StartX = x, StartY = y, isHorizontal = false, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer) };
+                    PlaceWord(entry);
+                    UsedVerticalEntries.Add(entry);
+                    usedAnswers.Add(AttemptToFit.answer);
+                    CrosswordUtils.AddEntryToDatabase(AttemptToFit);
+                    grid[x, y].Unselect();
                 }
             }
         }
     }
 
-
     public void SaveNewCrossword()
     {
-        CrosswordUtils.SaveNewCrossword(UsedHorizontalEntries, UsedVerticalEntries);
+        CrosswordUtils.SaveNewCrossword(SelectedDifficulty, UsedHorizontalEntries, UsedVerticalEntries);
     }
-
 
     public void GenerateNewCrossword()
     {
-        InitializeGrid();
-        ClearGrid();
+        StartCoroutine(GenerateBatch(CrosswordsToGenerate));
+    }
 
+    private IEnumerator GenerateBatch(int count)
+    {
+        var database = CrosswordUtils.ReadDatabaseFromFile();
 
-        var entries = CrosswordUtils.ReadDatabaseFromFile();
-        GenerateCrossword(4, entries);
+        for (int i = 0; i < count; i++)
+        {
+            minHWords = Random.Range(10, 15);
+            minVWords = 24 - minHWords;
+            int framesSinceStart = 0;
+
+            var savedAnswers = CrosswordUtils.GetSavedAnswers(SelectedDifficulty);
+            var eligible = database.Entries
+                .Where(e => e.answer.Length >= 3 && e.answer.Length <= MaxGridX && e.difficulty == SelectedDifficulty && !e.isUsed && !savedAnswers.Contains(e.answer));
+
+            var wordPool = eligible
+                .Where(e => e.answer.Length >= 4)
+                .OrderByDescending(e => e.answer.Length)
+                .ToList();
+
+            var shortPool = eligible
+                .Where(e => e.answer.Length == 3)
+                .ToList();
+
+            InitializeGrid();
+
+            // Run up to 200 attempts per frame — keeps Unity responsive without yielding every attempt
+            while (!MeetsMinimum())
+            {
+                // If an asymmetric target is proving too hard, fall back to balanced
+                if (framesSinceStart > 20 && (minHWords != 12 || minVWords != 12))
+                {
+                    minHWords = 12;
+                    minVWords = 12;
+                }
+
+                for (int attempt = 0; attempt < 200 && !MeetsMinimum(); attempt++)
+                {
+                    ClearGrid();
+                    UsedHorizontalEntries.Clear();
+                    UsedVerticalEntries.Clear();
+                    usedAnswers.Clear();
+                    GenerateCrossword(wordPool, shortPool);
+                }
+
+                framesSinceStart++;
+                yield return null;
+            }
+
+            TurnOfFUnusedElements();
+            CrosswordUtils.SaveNewCrossword(SelectedDifficulty, UsedHorizontalEntries, UsedVerticalEntries);
+            database = CrosswordUtils.ReadDatabaseFromFile();
+
+            Debug.Log($"Crossword {i + 1}/{count} saved.");
+            yield return null;
+        }
+
+        Debug.Log($"Batch complete: {count} crosswords saved.");
+    }
+
+    private void GenerateCrossword(List<CrosswordEntry> wordPool, List<CrosswordEntry> shortPool)
+    {
+        if (wordPool.Count == 0) return;
+
+        // Pick a random word from the longest available to seed variety across attempts
+        int firstPick = Random.Range(0, Mathf.Min(5, wordPool.Count));
+        var first = wordPool[firstPick];
+
+        // Bias seed direction toward whichever orientation has the larger target
+        bool startHorizontal = Random.value < (float)minHWords / (minHWords + minVWords);
+        int firstStartX, firstStartY;
+        if (startHorizontal)
+        {
+            firstStartX = Mathf.Clamp((MaxGridX - first.answer.Length) / 2 + Random.Range(-2, 3), 0, MaxGridX - first.answer.Length);
+            firstStartY = Random.Range(2, MaxGridY - 2);
+        }
+        else
+        {
+            firstStartX = Random.Range(2, MaxGridX - 2);
+            firstStartY = Mathf.Clamp((MaxGridY - first.answer.Length) / 2 + Random.Range(-2, 3), 0, MaxGridY - first.answer.Length);
+        }
+
+        var firstEntry = new CrosswordEntryPositional { StartX = firstStartX, StartY = firstStartY, isHorizontal = startHorizontal, entry = first };
+        PlaceWord(firstEntry);
+        if (startHorizontal) UsedHorizontalEntries.Add(firstEntry);
+        else UsedVerticalEntries.Add(firstEntry);
+        usedAnswers.Add(first.answer);
+
+        bool madeProgress = true;
+        while (!MeetsMinimum() && madeProgress)
+        {
+            madeProgress = false;
+            // Longest words first, random tiebreak — gives large words priority at every pass
+            var candidates = wordPool
+                .Where(e => !usedAnswers.Contains(e.answer))
+                .OrderByDescending(e => e.answer.Length)
+                .ThenBy(_ => Random.value)
+                .ToList();
+
+            foreach (var word in candidates)
+            {
+                if (MeetsMinimum()) break;
+                if (TryPlaceAtIntersection(word))
+                    madeProgress = true;
+            }
+        }
+
+        // Only fall back to 3-letter words if 4+ letter words can't complete the grid
+        if (!MeetsMinimum())
+        {
+            madeProgress = true;
+            while (!MeetsMinimum() && madeProgress)
+            {
+                madeProgress = false;
+                var candidates = shortPool
+                    .Where(e => !usedAnswers.Contains(e.answer))
+                    .OrderBy(_ => Random.value)
+                    .ToList();
+
+                foreach (var word in candidates)
+                {
+                    if (MeetsMinimum()) break;
+                    if (TryPlaceAtIntersection(word))
+                        madeProgress = true;
+                }
+            }
+        }
+    }
+
+    public bool MeetsMinimum() =>
+        UsedHorizontalEntries.Count >= minHWords && UsedVerticalEntries.Count >= minVWords;
+
+    private bool TryPlaceAtIntersection(CrosswordEntry word)
+    {
+        bool needHorz = UsedHorizontalEntries.Count < minHWords;
+        bool needVert = UsedVerticalEntries.Count < minVWords;
+
+        // Randomly decide which direction to try first so growth isn't always biased
+        bool tryHorzFirst = Random.value > 0.5f;
+
+        var letterIndices = Enumerable.Range(0, word.answer.Length).OrderBy(_ => Random.value).ToList();
+
+        foreach (int i in letterIndices)
+        {
+            char letter = word.answer[i];
+            if (!letterCells.TryGetValue(letter, out var cells)) continue;
+
+            foreach (var (gx, gy) in cells)
+            {
+
+                bool existingIsHorizontal = grid[gx, gy].entryInfo.isHorizontal;
+
+                bool triedHorz = false, triedVert = false;
+
+                for (int pass = 0; pass < 2; pass++)
+                {
+                    bool tryHorz = (pass == 0) ? tryHorzFirst : !tryHorzFirst;
+
+                    if (tryHorz && !triedHorz && !existingIsHorizontal && needHorz)
+                    {
+                        triedHorz = true;
+                        int sx = gx - i;
+                        if (CanFitWord(word.answer, sx, gy, true))
+                        {
+                            var entry = new CrosswordEntryPositional { StartX = sx, StartY = gy, isHorizontal = true, entry = word };
+                            PlaceWord(entry);
+                            UsedHorizontalEntries.Add(entry);
+                            usedAnswers.Add(word.answer);
+                            return true;
+                        }
+                    }
+
+                    if (!tryHorz && !triedVert && existingIsHorizontal && needVert)
+                    {
+                        triedVert = true;
+                        int sy = gy - i;
+                        if (CanFitWord(word.answer, gx, sy, false))
+                        {
+                            var entry = new CrosswordEntryPositional { StartX = gx, StartY = sy, isHorizontal = false, entry = word };
+                            PlaceWord(entry);
+                            UsedVerticalEntries.Add(entry);
+                            usedAnswers.Add(word.answer);
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     private void TurnOfFUnusedElements()
     {
         for (int y = 0; y < MaxGridY; y++)
-        {
             for (int x = 0; x < MaxGridX; x++)
-            {
-                var gridItem = grid[x, y];
-                if (gridItem.HasLetter == false)
-                {
-                    gridItem.TurnOffGridElement();
-                }
-            }
-        }
+                if (!grid[x, y].HasLetter)
+                    grid[x, y].TurnOffGridElement();
     }
-
 
     void InitializeGrid()
     {
-        // Initialize the 2D array based on rows and columns
         grid = new GeneratedEntry[MaxGridX, MaxGridY];
-
         int childIndex = 0;
-
-        // Iterate through each row and column to fill the grid
         for (int y = 0; y < MaxGridY; y++)
         {
             for (int x = 0; x < MaxGridX; x++)
             {
-                Transform child = transform.GetChild(childIndex); // Get the child at the current index
-                grid[x, y] = child.GetComponent<GeneratedEntry>(); // Assign the GridCell component to the array
+                Transform child = transform.GetChild(childIndex);
+                grid[x, y] = child.GetComponent<GeneratedEntry>();
                 grid[x, y].Reset();
                 childIndex++;
             }
         }
     }
 
-
     private void ClearGrid()
     {
-        foreach (var grid in grid)
-        {
-            grid.Reset();
-        }
+        foreach (var cell in grid) cell.Reset();
+        letterCells.Clear();
     }
 
-
-    public void GenerateCrossword(int min, CrosswordDatabase database)
+    public bool CanFitWord(string word, int startX, int startY, bool isHorizontal, bool requireIntersection = true)
     {
-        var answers = database.Entries.Where(t => (t.answer.Length >= min)).ToArray();
+        if (startX < 0 || startY < 0) return false;
 
-        // Try to place the word in each cell in both orientations
-        for (int y = 0; y < grid.GetLength(1); y++)
-        {
-            for (int x = 0; x < grid.GetLength(0); x++)
-            {
-                // Check if the word can fit horizontally
-
-                for (int i = 0; i < answers.Length; i++)
-                {
-                    var word = answers[i];
-                    if (CanFitWord(word.answer, x, y, true) && !usedAnswers.Contains(word.answer) && UsedHorizontalEntries.Count() < MaxHorzAndVert)
-                    {
-                        CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
-                        {
-                            StartX = x, StartY = y, isHorizontal = true, entry = word,
-                        };
-                        PlaceWord(newEntryData);
-                        //     grid[x, y].SetCell(newEntryData);
-                        UsedHorizontalEntries.Add(newEntryData);
-                        usedAnswers.Add(word.answer);
-                        continue;
-                    }
-
-                    if (CanFitWord(word.answer, x, y, false) && !usedAnswers.Contains(word.answer) && UsedVerticalEntries.Count() < MaxHorzAndVert)
-                    {
-                        CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
-                        {
-                            StartX = x, StartY = y, isHorizontal = false, entry = word,
-                        };
-
-                        PlaceWord(newEntryData);
-                        //   grid[x, y].Init(newEntryData);
-                        UsedVerticalEntries.Add(newEntryData);
-                        usedAnswers.Add(word.answer);
-                    }
-                }
-            }
-        }
-
-        if (UsedVerticalEntries.Count() == MaxHorzAndVert && UsedHorizontalEntries.Count() == MaxHorzAndVert)
-        {
-            TurnOfFUnusedElements();
-
-            return;
-        }
-
-        var threeLetterAnswers = database.Entries.Where(t => (t.answer.Length < min)).ToArray();
-
-        // Try to place the word in each cell in both orientations
-        for (int y = 0; y < grid.GetLength(1); y++)
-        {
-            for (int x = 0; x < grid.GetLength(0); x++)
-            {
-                // Check if the word can fit horizontally
-
-
-                for (int i = 0; i < threeLetterAnswers.Length; i++)
-                {
-                    var word = threeLetterAnswers[i];
-                    if (CanFitWord(word.answer, x, y, true) && !usedAnswers.Contains(word.answer) && UsedHorizontalEntries.Count() < MaxHorzAndVert)
-                    {
-                        CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
-                        {
-                            StartX = x, StartY = y, isHorizontal = true, entry = word,
-                        };
-                        PlaceWord(newEntryData);
-                        //     grid[x, y].SetCell(newEntryData);
-                        UsedHorizontalEntries.Add(newEntryData);
-                        usedAnswers.Add(word.answer);
-                        continue;
-                    }
-
-                    if (CanFitWord(word.answer, x, y, false) && !usedAnswers.Contains(word.answer) && UsedVerticalEntries.Count() < MaxHorzAndVert)
-                    {
-                        CrosswordEntryPositional newEntryData = new CrosswordEntryPositional()
-                        {
-                            StartX = x, StartY = y, isHorizontal = false, entry = word,
-                        };
-
-                        PlaceWord(newEntryData);
-                        //   grid[x, y].Init(newEntryData);
-                        UsedVerticalEntries.Add(newEntryData);
-                        usedAnswers.Add(word.answer);
-                    }
-                }
-            }
-        }
-
-        TurnOfFUnusedElements();
-        
-    }
-
-
-    public bool CanFitWord(string word, int startX, int startY, bool isHorizontal)
-    {
         int length = word.Length;
         int maxX = grid.GetLength(0) - 1;
         int maxY = grid.GetLength(1) - 1;
 
-        // Check bounds and ensure no conflicts before/after the word
         if (isHorizontal)
         {
-            if (startX + length > maxX + 1) // Check if the word exceeds the grid's maximum width
-            {
-                Debug.LogWarning($"{word} exceeds the grid's maximum width {startX + length} is greater than {maxX}");
-                return false;
-            }
-
-            if (startX > 0 && grid[startX - 1, startY].HasLetter) // Check if the cell before the word has a letter
-            {
-                Debug.LogWarning($"{word} cell before has letter ");
-                return false;
-            }
-
-            if (startX + length <= maxX && grid[startX + length, startY].HasLetter) // Check if the cell after the word has a letter
-            {
-                Debug.LogWarning($"{word} cell after has letter ");
-                return false;
-            }
+            if (startX + length > maxX + 1) return false;
+            if (startX > 0 && grid[startX - 1, startY].HasLetter) return false;
+            if (startX + length <= maxX && grid[startX + length, startY].HasLetter) return false;
         }
         else
         {
-            if (startY + length > maxY+1)
-            {
-                Debug.LogWarning($"{word} exceeds the grid's maximum width {startY + length} is greater than {maxY}");
-                return false;
-            }
-
-            if (startY > 0 && grid[startX, startY - 1].HasLetter)
-            {
-                Debug.LogWarning($"{word} cell before has letter ");
-                return false;
-            }
-
-            if (startY + length <= maxY && grid[startX, startY + length].HasLetter)
-            {
-                Debug.LogWarning($"{word} cell after has letter ");
-                return false;
-            }
+            if (startY + length > maxY + 1) return false;
+            if (startY > 0 && grid[startX, startY - 1].HasLetter) return false;
+            if (startY + length <= maxY && grid[startX, startY + length].HasLetter) return false;
         }
 
+        bool hasIntersection = false;
 
-        // Check each cell in the word's path and its neighbors
         for (int i = 0; i < length; i++)
         {
             int x = isHorizontal ? startX + i : startX;
             int y = isHorizontal ? startY : startY + i;
 
-            // Check if current cell has conflicting letters
-            if (grid[x, y].HasLetter && grid[x, y].GetCell() != word[i])
+            if (grid[x, y].HasLetter)
             {
-                string horz = isHorizontal ? "horz" : "vert";
-                Debug.LogWarning($"{word} has neighbor issue when placing {horz}, {grid[x, y].GetCell()} dont equal {word[i]}");
-                return false;
+                if (grid[x, y].GetCell() != word[i]) return false;
+                if (grid[x, y].entryInfo.isHorizontal == isHorizontal) return false;
+                hasIntersection = true;
             }
-
-            bool intersecting = grid[x, y].GetCell() == word[i];
-
-            if (!intersecting)
+            else if (!IsValidNeighbor(x, y, isHorizontal))
             {
-                if (!IsValidNeighbor(x, y, isHorizontal))
-                {
-                    string horz = isHorizontal ? "horz" : "vert";
-                    Debug.LogWarning($"{word} has not a valid neighbor when placing {horz}");
-                    return false;
-                }
+                return false;
             }
         }
 
-        return true;
+        return !requireIntersection || hasIntersection;
     }
 
-// Helper method to place a word in the grid once we've found a valid spot
     private void PlaceWord(CrosswordEntryPositional entryInfo)
     {
         for (int i = 0; i < entryInfo.entry.answer.Length; i++)
         {
             int x = entryInfo.isHorizontal ? entryInfo.StartX + i : entryInfo.StartX;
             int y = entryInfo.isHorizontal ? entryInfo.StartY : entryInfo.StartY + i;
-
-            if (grid[x, y].HasLetter)
+            if (grid[x, y].HasLetter) continue;
+            grid[x, y].SetCell(entryInfo.entry.answer[i], entryInfo);
+            char c = entryInfo.entry.answer[i];
+            if (!letterCells.TryGetValue(c, out var list))
             {
-                continue;
+                list = new List<(int, int)>();
+                letterCells[c] = list;
             }
-
-            grid[x, y].SetCell(entryInfo.entry.answer[i], entryInfo); // Assuming SetLetter is a method in GridCell to assign a letter
-
-            if (entryInfo.isHorizontal)
-            {
-                // var gridsee = grid[startX + 1, y];
-                //
-                // if (gridsee != null)
-                // {
-                //     grid[startX + 1, y].SetAllowedEntry(true);
-                // }
-            }
-            else
-            {
-                // var gridsee = grid[startX, y+1];
-                //
-                // if (gridsee != null)
-                // {
-                //     grid[startX, y+1].SetAllowedEntry(false);
-                // }
-            }
+            list.Add((x, y));
         }
-
-        // if (!entryInfo.isHorizontal)
-        // {
-        //     var gridsee = grid[entryInfo.StartX, entryInfo.StartY + entryInfo.entry.answer.Length];
-        //
-        //     if (gridsee != null)
-        //     {
-        //         grid[entryInfo.StartX, entryInfo.StartY + entryInfo.entry.answer.Length].TurnOffGridElement();
-        //     }
-        // }
-        // else
-        // {
-        //     var gridsee = grid[entryInfo.StartX + entryInfo.entry.answer.Length, entryInfo.StartY];
-        //
-        //     if (gridsee != null)
-        //     {
-        //         grid[entryInfo.StartX + entryInfo.entry.answer.Length, entryInfo.StartY].TurnOffGridElement();
-        //     }
-        // }
     }
 
     private bool IsValidNeighbor(int x, int y, bool isHorizontal)
@@ -404,22 +362,8 @@ public class CrosswordGenerator : MonoBehaviour
         int maxY = grid.GetLength(1) - 1;
 
         if (!isHorizontal)
-        {
-            if ((x > 0 && grid[x - 1, y].HasLetter) || (x < maxX && grid[x + 1, y].HasLetter))
-            {
-                return false;
-            }
-        }
+            return !(x > 0 && grid[x - 1, y].HasLetter) && !(x < maxX && grid[x + 1, y].HasLetter);
         else
-        {
-            if (y > 0 && grid[x, y - 1].HasLetter || // Above
-                (y < maxY && grid[x, y + 1].HasLetter))
-            {
-                return false;
-            }
-        }
-
-
-        return true;
+            return !(y > 0 && grid[x, y - 1].HasLetter) && !(y < maxY && grid[x, y + 1].HasLetter);
     }
 }

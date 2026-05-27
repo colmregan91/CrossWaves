@@ -377,7 +377,8 @@ public class CrosswordEntry
 {
     public string question;
     public string answer;
-
+    public string difficulty;
+    public bool isUsed;
 
     public CrosswordEntry(string question, string answer)
     {

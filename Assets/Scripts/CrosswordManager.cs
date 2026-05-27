@@ -12,10 +12,11 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
 {
     public CrosswordGridEntry[,] grid;
 
-    private int MaxGridX = 12;
-    private int MaxGridY = 12;
+    private int MaxGridX=13;
+    private int MaxGridY=13;
 
     private CrosswordStructure curCrossword;
+    private string curDifficulty;
     private int curQuestion;
 
     private List<CrosswordEntryPositional> allQuestions = new List<CrosswordEntryPositional>();
@@ -35,10 +36,8 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
         return allQuestions;
     }
 
-    public int GetCurrentCrosswordNumber()
-    {
-        return curCrossword.crosswordNumber;
-    }
+    public int GetCurrentCrosswordNumber() => curCrossword.crosswordNumber;
+    public string GetCurrentDifficulty() => curDifficulty;
 
     protected override void Awake()
     {
@@ -52,7 +51,7 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
         allQuestions.Clear();
         InitializeGrid();
     }
-
+    
 
     private void OnEnable()
     {
@@ -71,7 +70,6 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
             for (int x = 0; x < MaxGridX; x++)
             {
                 Transform child = transform.GetChild(childIndex);
-
                 grid[x, y] = child.GetComponent<CrosswordGridEntry>();
                 grid[x, y].Reset();
                 childIndex++;
@@ -275,9 +273,10 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
         OnWordRevealed?.Invoke(SelectedPositions);
     }
 
-    public void GenerateCrossword(CrosswordStructure str, bool isComplete)
+    public void GenerateCrossword(CrosswordStructure str, bool isComplete, string difficulty = "easy")
     {
         curCrossword = str;
+        curDifficulty = difficulty;
         foreach (var entryData in curCrossword.horizontalEntries)
         {
             PlaceWord(entryData);

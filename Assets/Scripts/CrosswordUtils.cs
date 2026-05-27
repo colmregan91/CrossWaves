@@ -10,32 +10,41 @@ public static class CrosswordUtils
     static string DatabasePath => Path.Combine(Application.persistentDataPath, "CrosswordDatabase.json");
     
     
-    public static string GetCrosswordPath(int number)
+    public static string GetCrosswordPath(string difficulty, int number)
     {
-
-        string NewCrosswordPath = Path.Combine(Application.persistentDataPath, $"Crosswords/{number}.json");
-        return NewCrosswordPath;
+        return Path.Combine(CrosswordsPath, $"{difficulty}cw_{number}.json");
     }
 
-    public static void SaveProgress(int num, List<CrosswordEntryPositional> progress)
+    public static void SaveProgress(string difficulty, int num, List<CrosswordEntryPositional> progress)
     {
-        CrosswordStructure newCrosswordStructure = new CrosswordStructure() {crosswordNumber = num, horizontalEntries = progress.Take(10).ToList(), verticalEntries = progress.Skip(10).ToList() };
+        CrosswordStructure newCrosswordStructure = new CrosswordStructure() { crosswordNumber = num, horizontalEntries = progress.Take(10).ToList(), verticalEntries = progress.Skip(10).ToList() };
         var json = JsonUtility.ToJson(newCrosswordStructure, true);
-
-        File.WriteAllText($"{CrosswordsPath}/{num}.json", json);
-
+        File.WriteAllText(GetCrosswordPath(difficulty, num), json);
     }
 
-    public static  CrosswordStructure LoadCrosswordFromFile(string num)
+    public static CrosswordStructure LoadCrosswordFromFile(string difficulty, int number)
     {
-
-        string json = File.ReadAllText(Path.Combine(CrosswordsPath, num)); // pull from resources
-        CrosswordStructure crossword = JsonUtility.FromJson<CrosswordStructure>(json); 
-        
-        return crossword; 
+        string json = File.ReadAllText(GetCrosswordPath(difficulty, number));
+        CrosswordStructure crossword = JsonUtility.FromJson<CrosswordStructure>(json);
+        return crossword;
     }
     
     
+    public static HashSet<string> GetSavedAnswers(string difficulty)
+    {
+        var used = new HashSet<string>();
+        if (!Directory.Exists(CrosswordsPath)) return used;
+
+        foreach (string file in Directory.GetFiles(CrosswordsPath, $"{difficulty}cw_*.json"))
+        {
+            string json = File.ReadAllText(file);
+            CrosswordStructure cw = JsonUtility.FromJson<CrosswordStructure>(json);
+            foreach (var e in cw.horizontalEntries) used.Add(e.entry.answer);
+            foreach (var e in cw.verticalEntries) used.Add(e.entry.answer);
+        }
+        return used;
+    }
+
     public static CrosswordDatabase ReadDatabaseFromFile()
     {
         string json = File.ReadAllText(DatabasePath);
@@ -44,50 +53,43 @@ public static class CrosswordUtils
     }
     
     
-    public static void WriteNewCrosswordToFile(CrosswordStructure newCrossword)
+    public static void WriteNewCrosswordToFile(string difficulty, CrosswordStructure newCrossword)
     {
         var json = JsonUtility.ToJson(newCrossword, true);
-        File.WriteAllText(GetCrosswordPath(newCrossword.crosswordNumber), json);
+        File.WriteAllText(GetCrosswordPath(difficulty, newCrossword.crosswordNumber), json);
     }
     
     
-    public static void SaveNewCrossword(List<CrosswordEntryPositional> horizontal,List<CrosswordEntryPositional> vertical )
+    public static void SaveNewCrossword(string difficulty, List<CrosswordEntryPositional> horizontal, List<CrosswordEntryPositional> vertical)
     {
-        string[] files = Directory.GetFiles(CrosswordsPath);
-        CrosswordStructure newCrosswordStructure = new CrosswordStructure() {crosswordNumber = files.Length + 1, horizontalEntries = horizontal, verticalEntries = vertical };
-        
-        WriteNewCrosswordToFile(newCrosswordStructure);
+        Directory.CreateDirectory(CrosswordsPath);
+        string[] files = Directory.GetFiles(CrosswordsPath, $"{difficulty}cw_*.json");
+        var newCrosswordStructure = new CrosswordStructure() { crosswordNumber = files.Length + 1, horizontalEntries = horizontal, verticalEntries = vertical };
 
+        WriteNewCrosswordToFile(difficulty, newCrosswordStructure);
 
-        // remove used from all entries
-        CrosswordDatabase NewEntries = ReadDatabaseFromFile();
+        CrosswordDatabase db = ReadDatabaseFromFile();
 
-        for (int i = 0; i < horizontal.Count; i++)
+        foreach (var positional in horizontal.Concat(vertical))
         {
-            var f = NewEntries.Entries.FirstOrDefault(T => T.question.Equals(horizontal[i].entry.question));
-
-            if (f != null)
-            {
-                NewEntries.Entries.Remove(f);
-            }
-        }
-        
-        for (int i = 0; i < vertical.Count; i++)
-        {
-            var f = NewEntries.Entries.FirstOrDefault(T => T.question.Equals(vertical[i].entry.question));
-
-            if (f != null)
-            {
-                NewEntries.Entries.Remove(f);
-            }
+            foreach (var match in db.Entries.Where(e => e.answer.Equals(positional.entry.answer)))
+                match.isUsed = true;
         }
 
-        CrosswordDatabase newBase = new CrosswordDatabase() { Entries = NewEntries.Entries };
-        Debug.Log(newBase.Entries[0].question);
-
-        WriteNewDatabaseToFile(newBase);
+        WriteNewDatabaseToFile(db);
     }
     
+    public static void AddEntryToDatabase(CrosswordEntry entry)
+    {
+        CrosswordDatabase db = ReadDatabaseFromFile();
+        bool exists = db.Entries.Any(e => e.answer.Equals(entry.answer));
+        if (!exists)
+        {
+            db.Entries.Add(entry);
+            WriteNewDatabaseToFile(db);
+        }
+    }
+
     public static void WriteNewDatabaseToFile(CrosswordDatabase newDatabase)
     {
         var json = JsonUtility.ToJson(newDatabase, true);
