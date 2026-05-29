@@ -9,9 +9,9 @@ using UnityEngine.UI;
 
 public class CrosswordGridEntry : ClickHandlers
 {
-    [SerializeField] protected Image completeImg;
     [SerializeField] protected Image selImg;
     [SerializeField] protected Image img;
+    [SerializeField] protected Image border;
     public CrosswordEntryPositional entryInfo;
     [SerializeField] protected Image individuallySelectedImage;
 
@@ -54,9 +54,6 @@ public class CrosswordGridEntry : ClickHandlers
 
     public void ShowCell()
     {
-        completeImg.enabled = true;
-        img.enabled = false;
-        textField.color = Color.white;
         textField.text = letterAtCell.ToString();
         SetShowing(true);
     }
@@ -66,15 +63,16 @@ public class CrosswordGridEntry : ClickHandlers
         entryInfo = info;
         HasLetter = true;
         letterAtCell = text;
+        border.enabled = true;
     }
 
     public void Reset()
     {
+        border.enabled = false;
         HasLetter = false;
         letterAtCell = ' ';
         textField.text = String.Empty;
         img.enabled = true;
-        completeImg.enabled = false;
         individuallySelectedImage.enabled = false;
         selImg.enabled = false;
         SetShowing(false);
@@ -109,6 +107,7 @@ public class CrosswordGridEntry : ClickHandlers
 
     public virtual void TurnOffGridElement()
     {
+        border.enabled = false;
         HasLetter = false;
         img.enabled = false;
         letterAtCell = ' ';

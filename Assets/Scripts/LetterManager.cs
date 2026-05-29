@@ -16,7 +16,7 @@ public class LetterManager : MonoBehaviour
     private CollectionOrganiser<Letter> _letterCollection;
     public AnchoredPositionsManager apm;
 
-    public bool isSpinning;
+    public bool isSpinning; 
 
 
     private void Awake()
