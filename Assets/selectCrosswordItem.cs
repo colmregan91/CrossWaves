@@ -59,10 +59,13 @@ public class selectCrosswordItem : ClickHandlers
         {
             SetAsCompleted();
         }
+        else
+        {
+            SetAsInProgress();
+        }
     }
     
     
-
     public override void OnPointerDown(PointerEventData eventData)
     {
         if (isLocked)
@@ -96,6 +99,12 @@ public class selectCrosswordItem : ClickHandlers
     public void Unlock()
     {
         lockImage.gameObject.SetActive(false);
+    }
+    
+    public void SetAsInProgress()
+    {
+        lockImage.gameObject.SetActive(false);
+        completeImage.gameObject.SetActive(false);
     }
 
     public void SetAsCompleted()

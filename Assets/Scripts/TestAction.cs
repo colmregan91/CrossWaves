@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.IO;
 using System.Linq;
@@ -5,11 +6,7 @@ using UnityEngine;
 
 public class TestAction : MonoBehaviour
 {
-    [ContextMenu("Complete Crossword")]
-    public void CompleteCrossword()
-    {
-        StartCoroutine(CompleteCrosswordRoutine());
-    }
+    
 
     [ContextMenu("Reset All Progress")]
     public void ResetAllProgress()
@@ -23,12 +20,18 @@ public class TestAction : MonoBehaviour
             foreach (var entry in cw.horizontalEntries) entry.IsEntryFilled = false;
             foreach (var entry in cw.verticalEntries) entry.IsEntryFilled = false;
             File.WriteAllText(file, JsonUtility.ToJson(cw, true));
+            
         }
 
         foreach (var item in FindObjectsOfType<selectCrosswordItem>())
             item.SetStructure();
 
         Debug.Log("All crossword progress reset.");
+    }
+    [ContextMenu("Complete Crossword")]
+    public void CompleteCrossword()
+    {
+        StartCoroutine(CompleteCrosswordRoutine());
     }
 
     private IEnumerator CompleteCrosswordRoutine()
@@ -40,4 +43,5 @@ public class TestAction : MonoBehaviour
             CrosswordManager.Instance.RevealWord();
         }
     }
+
 }

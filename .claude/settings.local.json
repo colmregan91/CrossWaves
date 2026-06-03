@@ -6,7 +6,8 @@
       "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Editor\\\\InspectorButtonDrawer.cs\" -Force)",
       "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Editor\\\\InspectorButtonDrawer.cs.meta\" -ErrorAction SilentlyContinue -Force)",
       "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Scripts\\\\InspectorButtonAttribute.cs\" -Force)",
-      "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Scripts\\\\InspectorButtonAttribute.cs.meta\" -ErrorAction SilentlyContinue -Force)"
+      "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Scripts\\\\InspectorButtonAttribute.cs.meta\" -ErrorAction SilentlyContinue -Force)",
+      "Bash(xargs grep -l \"SelectCrosswordCanvasParent\")"
     ]
   }
 }
