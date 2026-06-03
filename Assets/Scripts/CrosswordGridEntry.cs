@@ -1,19 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class CrosswordGridEntry : ClickHandlers
 {
-    [SerializeField] protected Image selImg;
-    [SerializeField] protected Image img;
-    [SerializeField] protected Image border;
     public CrosswordEntryPositional entryInfo;
-    [SerializeField] protected Image individuallySelectedImage;
+    [SerializeField] protected GameObject CellHolder;
+    public Image mainImg;
 
     public TextMeshProUGUI textField;
 
@@ -22,35 +20,27 @@ public class CrosswordGridEntry : ClickHandlers
     public bool HasLetter;
 
     public bool isShowing;
-    public bool IsSelected => selImg.enabled == true;
 
+    private Color defaultColor;
+
+    private void Awake()
+    {
+        if (mainImg != null)
+            defaultColor = mainImg.color;
+    }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         if (HasLetter == false)
-        {
             return;
-        }
 
         CrosswordManager.Instance.UpdateCurSelected(this);
-
-        if (selImg.enabled)
-        {
-            return;
-        }
-
         CrosswordManager.Instance.SelectClickedtWord(entryInfo, this);
     }
 
-    public bool GetShowing()
-    {
-        return isShowing;
-    }
+    public bool GetShowing() => isShowing;
 
-    public void SetShowing(bool val)
-    {
-        isShowing = val;
-    }
+    public void SetShowing(bool val) => isShowing = val;
 
     public void ShowCell()
     {
@@ -63,53 +53,49 @@ public class CrosswordGridEntry : ClickHandlers
         entryInfo = info;
         HasLetter = true;
         letterAtCell = text;
-        border.enabled = true;
     }
 
     public void Reset()
     {
-        border.enabled = false;
         HasLetter = false;
         letterAtCell = ' ';
         textField.text = String.Empty;
-        img.enabled = true;
-        individuallySelectedImage.enabled = false;
-        selImg.enabled = false;
+        CellHolder.SetActive(true);
         SetShowing(false);
-        
+        mainImg.DOKill();
+        mainImg.color = defaultColor;
     }
 
-    public void Select()
+    public void Select(float delay = 0f)
     {
-        selImg.enabled = true;
+        mainImg.DOKill();
+        mainImg.DOColor(CrosswordManager.Instance.wordSelectColor, 0.3f).SetDelay(delay);
     }
 
     public void SelectIndividual()
     {
-        individuallySelectedImage.enabled = true;
+        mainImg.DOKill();
+        mainImg.DOColor(CrosswordManager.Instance.individualCellColor, 0.3f);
     }
 
     public void UnSelectIndividual()
     {
-        individuallySelectedImage.enabled = false;
+        mainImg.DOKill();
+        mainImg.DOColor(CrosswordManager.Instance.wordSelectColor, 0.3f);
     }
 
-    public void Unselect()
+    public void Unselect(float delay = 0f)
     {
-        selImg.enabled = false;
-        individuallySelectedImage.enabled = false;
+        mainImg.DOKill();
+        mainImg.DOColor(defaultColor, 1f).SetDelay(delay);
     }
 
-    public char GetCell()
-    {
-        return letterAtCell;
-    }
+    public char GetCell() => letterAtCell;
 
     public virtual void TurnOffGridElement()
     {
-        border.enabled = false;
+        CellHolder.SetActive(false);
         HasLetter = false;
-        img.enabled = false;
         letterAtCell = ' ';
         textField.text = string.Empty;
     }

@@ -30,6 +30,9 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
 
     private bool isCurrentCrosswordCompleted;
 
+    [SerializeField] public Color wordSelectColor = Color.yellow;
+    [SerializeField] public Color individualCellColor = Color.green;
+
 
     public List<CrosswordEntryPositional> getQuestions()
     {
@@ -207,11 +210,7 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
         {
             int x = horz ? wordInfo.StartX + i : wordInfo.StartX;
             int y = horz ? wordInfo.StartY : wordInfo.StartY + i;
-
-            if (grid[x, y].IsSelected)
-            {
-                grid[x, y].Unselect();
-            }
+            grid[x, y].Unselect(i * 0.04f);
         }
     }
 
@@ -235,25 +234,29 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
             gridEntry = grid[wordInfo.StartX, wordInfo.StartY];
         }
 
-        UpdateCurSelected(gridEntry);
+        curGridSelected = gridEntry;
         SelectedPositions.Clear();
         bool horz = wordInfo.isHorizontal;
 
+        int clickedIndex = horz
+            ? gridEntry.entryInfo.StartX == wordInfo.StartX ? 0 : 0
+            : 0;
         for (int i = 0; i < wordInfo.entry.answer.Length; i++)
         {
             int x = horz ? wordInfo.StartX + i : wordInfo.StartX;
             int y = horz ? wordInfo.StartY : wordInfo.StartY + i;
             CrosswordGridEntry entry = grid[x, y];
-
-            if (!entry.IsSelected)
-            {
-                entry.Select();
-            }
-
-
+            if (entry == gridEntry) clickedIndex = i;
             SelectedPositions.Add(entry);
         }
 
+        for (int i = 0; i < SelectedPositions.Count; i++)
+        {
+            float delay = Mathf.Abs(i - clickedIndex) * 0.04f;
+            SelectedPositions[i].Select(delay);
+        }
+
+        curGridSelected.SelectIndividual();
         OnNewWordClicked?.Invoke(SelectedPositions, wordInfo);
     }
 

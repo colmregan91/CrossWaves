@@ -45,6 +45,7 @@ public class selectCrosswordItem : ClickHandlers
 
     public void SetStructure()
     {
+        if (!System.IO.File.Exists(CrosswordUtils.GetCrosswordPath(difficulty, crosswordNumber))) return;
         structure = CrosswordUtils.LoadCrosswordFromFile(difficulty, crosswordNumber);
         var horzFilled = structure.horizontalEntries.Select(t => t.IsEntryFilled);
         var vertFilled = structure.verticalEntries.Select(t => t.IsEntryFilled);

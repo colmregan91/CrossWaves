@@ -1,67 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
 public class CrosswordGenerator : MonoBehaviour
 {
-    public CrosswordDatabase CrosswordEntryBase;
-    public static List<CrosswordEntry> AllEntries = new List<CrosswordEntry>();
-
     public GeneratedEntry[,] grid;
 
     private int MaxGridX = 13;
     private int MaxGridY = 13;
-    private const int MinWordCount = 12;
-    private int minHWords = 12;
-    private int minVWords = 12;
 
     public List<CrosswordEntryPositional> UsedHorizontalEntries = new List<CrosswordEntryPositional>();
     public List<CrosswordEntryPositional> UsedVerticalEntries = new List<CrosswordEntryPositional>();
 
-    public CrosswordEntry AttemptToFit;
-    private HashSet<string> usedAnswers = new HashSet<string>();
     public string SelectedDifficulty = "easy";
     public int CrosswordsToGenerate = 10;
 
-    private Dictionary<char, List<(int x, int y)>> letterCells = new Dictionary<char, List<(int x, int y)>>();
-
-    // Manual editor tool: select a cell, assign AttemptToFit, click TryFit
-    public void TryFit()
+    public void GenerateNewCrossword()
     {
-        bool wordPlaced = false;
-        for (int y = 0; y < grid.GetLength(1) && !wordPlaced; y++)
-        {
-            for (int x = 0; x < grid.GetLength(0) && !wordPlaced; x++)
-            {
-                if (!grid[x, y].IsSelected) continue;
-
-                if (CanFitWord(AttemptToFit.answer, x, y, true, false)
-                    && !usedAnswers.Contains(AttemptToFit.answer)
-                    && UsedHorizontalEntries.Count < MinWordCount)
-                {
-                    wordPlaced = true;
-                    var entry = new CrosswordEntryPositional { StartX = x, StartY = y, isHorizontal = true, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer) };
-                    PlaceWord(entry);
-                    UsedHorizontalEntries.Add(entry);
-                    usedAnswers.Add(AttemptToFit.answer);
-                    CrosswordUtils.AddEntryToDatabase(AttemptToFit);
-                    grid[x, y].Unselect();
-                }
-                else if (CanFitWord(AttemptToFit.answer, x, y, false, false)
-                    && !usedAnswers.Contains(AttemptToFit.answer)
-                    && UsedVerticalEntries.Count < MinWordCount)
-                {
-                    wordPlaced = true;
-                    var entry = new CrosswordEntryPositional { StartX = x, StartY = y, isHorizontal = false, entry = new CrosswordEntry(AttemptToFit.question, AttemptToFit.answer) };
-                    PlaceWord(entry);
-                    UsedVerticalEntries.Add(entry);
-                    usedAnswers.Add(AttemptToFit.answer);
-                    CrosswordUtils.AddEntryToDatabase(AttemptToFit);
-                    grid[x, y].Unselect();
-                }
-            }
-        }
+        StartCoroutine(GenerateBatch(CrosswordsToGenerate));
     }
 
     public void SaveNewCrossword()
@@ -69,211 +27,206 @@ public class CrosswordGenerator : MonoBehaviour
         CrosswordUtils.SaveNewCrossword(SelectedDifficulty, UsedHorizontalEntries, UsedVerticalEntries);
     }
 
-    public void GenerateNewCrossword()
-    {
-        StartCoroutine(GenerateBatch(CrosswordsToGenerate));
-    }
-
     private IEnumerator GenerateBatch(int count)
     {
+        string path = Path.Combine(Application.persistentDataPath, "Grids", "GridTemplateNormals.json");
+        string json = File.ReadAllText(path);
+        var templateFile = JsonUtility.FromJson<GridTemplateFile>(json);
+
         var database = CrosswordUtils.ReadDatabaseFromFile();
+        var usedTemplateIds = LoadUsedTemplateIds(SelectedDifficulty);
 
         for (int i = 0; i < count; i++)
         {
-            minHWords = Random.Range(10, 15);
-            minVWords = 24 - minHWords;
-            int framesSinceStart = 0;
+            var availableTemplates = templateFile.grids
+                .Where(t => !usedTemplateIds.Contains(t.id))
+                .ToArray();
+
+            if (availableTemplates.Length == 0)
+            {
+                usedTemplateIds.Clear();
+                availableTemplates = templateFile.grids;
+                Debug.Log("All templates used — resetting template pool.");
+            }
 
             var savedAnswers = CrosswordUtils.GetSavedAnswers(SelectedDifficulty);
-            var eligible = database.Entries
-                .Where(e => e.answer.Length >= 3 && e.answer.Length <= MaxGridX && e.difficulty == SelectedDifficulty && !e.isUsed && !savedAnswers.Contains(e.answer));
-
-            var wordPool = eligible
-                .Where(e => e.answer.Length >= 4)
-                .OrderByDescending(e => e.answer.Length)
-                .ToList();
-
-            var shortPool = eligible
-                .Where(e => e.answer.Length == 3)
-                .ToList();
+            var poolsByLength = database.Entries
+                .Where(e => e.difficulty == SelectedDifficulty
+                         && !e.isUsed
+                         && !savedAnswers.Contains(e.answer)
+                         && e.answer.Length >= 3
+                         && e.answer.Length <= MaxGridX)
+                .GroupBy(e => e.answer.Length)
+                .ToDictionary(g => g.Key, g => g.ToList());
 
             InitializeGrid();
 
-            // Run up to 200 attempts per frame — keeps Unity responsive without yielding every attempt
-            while (!MeetsMinimum())
+            bool filled = false;
+            GridTemplateDef usedTemplate = null;
+            while (!filled)
             {
-                // If an asymmetric target is proving too hard, fall back to balanced
-                if (framesSinceStart > 20 && (minHWords != 12 || minVWords != 12))
-                {
-                    minHWords = 12;
-                    minVWords = 12;
-                }
+                usedTemplate = availableTemplates[Random.Range(0, availableTemplates.Length)];
 
-                for (int attempt = 0; attempt < 200 && !MeetsMinimum(); attempt++)
-                {
-                    ClearGrid();
-                    UsedHorizontalEntries.Clear();
-                    UsedVerticalEntries.Clear();
-                    usedAnswers.Clear();
-                    GenerateCrossword(wordPool, shortPool);
-                }
+                ClearGrid();
+                ApplyTemplate(usedTemplate);
 
-                framesSinceStart++;
-                yield return null;
+                UsedHorizontalEntries.Clear();
+                UsedVerticalEntries.Clear();
+
+                foreach (var pool in poolsByLength.Values)
+                    Shuffle(pool);
+
+                filled = TryFillTemplate(usedTemplate, poolsByLength);
+
+                if (!filled)
+                    yield return null;
             }
 
-            TurnOfFUnusedElements();
+            usedTemplateIds.Add(usedTemplate.id);
+            SaveUsedTemplateIds(SelectedDifficulty, usedTemplateIds);
+
+            foreach (var entry in UsedHorizontalEntries.Concat(UsedVerticalEntries))
+                PlaceWord(entry);
+
             CrosswordUtils.SaveNewCrossword(SelectedDifficulty, UsedHorizontalEntries, UsedVerticalEntries);
             database = CrosswordUtils.ReadDatabaseFromFile();
 
-            Debug.Log($"Crossword {i + 1}/{count} saved.");
+            Debug.Log($"Crossword {i + 1}/{count} saved (template {usedTemplate.id}).");
             yield return null;
         }
 
         Debug.Log($"Batch complete: {count} crosswords saved.");
     }
 
-    private void GenerateCrossword(List<CrosswordEntry> wordPool, List<CrosswordEntry> shortPool)
+    private bool TryFillTemplate(GridTemplateDef template, Dictionary<int, List<CrosswordEntry>> poolsByLength)
     {
-        if (wordPool.Count == 0) return;
+        var letterGrid = new char[MaxGridX, MaxGridY];
+        var remaining = template.slots.ToList();
+        var usedAnswers = new HashSet<string>();
 
-        // Pick a random word from the longest available to seed variety across attempts
-        int firstPick = Random.Range(0, Mathf.Min(5, wordPool.Count));
-        var first = wordPool[firstPick];
-
-        // Bias seed direction toward whichever orientation has the larger target
-        bool startHorizontal = Random.value < (float)minHWords / (minHWords + minVWords);
-        int firstStartX, firstStartY;
-        if (startHorizontal)
+        while (remaining.Count > 0)
         {
-            firstStartX = Mathf.Clamp((MaxGridX - first.answer.Length) / 2 + Random.Range(-2, 3), 0, MaxGridX - first.answer.Length);
-            firstStartY = Random.Range(2, MaxGridY - 2);
-        }
-        else
-        {
-            firstStartX = Random.Range(2, MaxGridX - 2);
-            firstStartY = Mathf.Clamp((MaxGridY - first.answer.Length) / 2 + Random.Range(-2, 3), 0, MaxGridY - first.answer.Length);
-        }
+            var slot = remaining
+                .OrderByDescending(s => CountKnownLetters(s, letterGrid))
+                .ThenByDescending(s => s.length)
+                .First();
 
-        var firstEntry = new CrosswordEntryPositional { StartX = firstStartX, StartY = firstStartY, isHorizontal = startHorizontal, entry = first };
-        PlaceWord(firstEntry);
-        if (startHorizontal) UsedHorizontalEntries.Add(firstEntry);
-        else UsedVerticalEntries.Add(firstEntry);
-        usedAnswers.Add(first.answer);
+            if (!poolsByLength.TryGetValue(slot.length, out var candidates))
+                return false;
 
-        bool madeProgress = true;
-        while (!MeetsMinimum() && madeProgress)
-        {
-            madeProgress = false;
-            // Longest words first, random tiebreak — gives large words priority at every pass
-            var candidates = wordPool
-                .Where(e => !usedAnswers.Contains(e.answer))
-                .OrderByDescending(e => e.answer.Length)
-                .ThenBy(_ => Random.value)
-                .ToList();
-
-            foreach (var word in candidates)
+            CrosswordEntry match = null;
+            foreach (var entry in candidates)
             {
-                if (MeetsMinimum()) break;
-                if (TryPlaceAtIntersection(word))
-                    madeProgress = true;
-            }
-        }
-
-        // Only fall back to 3-letter words if 4+ letter words can't complete the grid
-        if (!MeetsMinimum())
-        {
-            madeProgress = true;
-            while (!MeetsMinimum() && madeProgress)
-            {
-                madeProgress = false;
-                var candidates = shortPool
-                    .Where(e => !usedAnswers.Contains(e.answer))
-                    .OrderBy(_ => Random.value)
-                    .ToList();
-
-                foreach (var word in candidates)
+                if (!usedAnswers.Contains(entry.answer) && MatchesLetterGrid(entry.answer, slot, letterGrid))
                 {
-                    if (MeetsMinimum()) break;
-                    if (TryPlaceAtIntersection(word))
-                        madeProgress = true;
+                    match = entry;
+                    break;
                 }
             }
+
+            if (match == null) return false;
+
+            PlaceWordInGrid(match.answer, slot, letterGrid);
+            usedAnswers.Add(match.answer);
+
+            var positional = new CrosswordEntryPositional
+            {
+                StartX = slot.col,
+                StartY = slot.row,
+                isHorizontal = slot.dir == "across",
+                entry = match
+            };
+
+            if (slot.dir == "across") UsedHorizontalEntries.Add(positional);
+            else UsedVerticalEntries.Add(positional);
+
+            remaining.Remove(slot);
+        }
+
+        return true;
+    }
+
+    private int CountKnownLetters(GridSlotDef slot, char[,] letterGrid)
+    {
+        bool isH = slot.dir == "across";
+        int count = 0;
+        for (int i = 0; i < slot.length; i++)
+        {
+            int x = isH ? slot.col + i : slot.col;
+            int y = isH ? slot.row : slot.row + i;
+            if (letterGrid[x, y] != '\0') count++;
+        }
+        return count;
+    }
+
+    private bool MatchesLetterGrid(string word, GridSlotDef slot, char[,] letterGrid)
+    {
+        bool isH = slot.dir == "across";
+        for (int i = 0; i < word.Length; i++)
+        {
+            int x = isH ? slot.col + i : slot.col;
+            int y = isH ? slot.row : slot.row + i;
+            if (letterGrid[x, y] != '\0' && letterGrid[x, y] != word[i])
+                return false;
+        }
+        return true;
+    }
+
+    private void PlaceWordInGrid(string word, GridSlotDef slot, char[,] letterGrid)
+    {
+        bool isH = slot.dir == "across";
+        for (int i = 0; i < word.Length; i++)
+        {
+            int x = isH ? slot.col + i : slot.col;
+            int y = isH ? slot.row : slot.row + i;
+            letterGrid[x, y] = word[i];
         }
     }
 
-    public bool MeetsMinimum() =>
-        UsedHorizontalEntries.Count >= minHWords && UsedVerticalEntries.Count >= minVWords;
-
-    private bool TryPlaceAtIntersection(CrosswordEntry word)
+    private void ApplyTemplate(GridTemplateDef template)
     {
-        bool needHorz = UsedHorizontalEntries.Count < minHWords;
-        bool needVert = UsedVerticalEntries.Count < minVWords;
-
-        // Randomly decide which direction to try first so growth isn't always biased
-        bool tryHorzFirst = Random.value > 0.5f;
-
-        var letterIndices = Enumerable.Range(0, word.answer.Length).OrderBy(_ => Random.value).ToList();
-
-        foreach (int i in letterIndices)
-        {
-            char letter = word.answer[i];
-            if (!letterCells.TryGetValue(letter, out var cells)) continue;
-
-            foreach (var (gx, gy) in cells)
-            {
-
-                bool existingIsHorizontal = grid[gx, gy].entryInfo.isHorizontal;
-
-                bool triedHorz = false, triedVert = false;
-
-                for (int pass = 0; pass < 2; pass++)
-                {
-                    bool tryHorz = (pass == 0) ? tryHorzFirst : !tryHorzFirst;
-
-                    if (tryHorz && !triedHorz && !existingIsHorizontal && needHorz)
-                    {
-                        triedHorz = true;
-                        int sx = gx - i;
-                        if (CanFitWord(word.answer, sx, gy, true))
-                        {
-                            var entry = new CrosswordEntryPositional { StartX = sx, StartY = gy, isHorizontal = true, entry = word };
-                            PlaceWord(entry);
-                            UsedHorizontalEntries.Add(entry);
-                            usedAnswers.Add(word.answer);
-                            return true;
-                        }
-                    }
-
-                    if (!tryHorz && !triedVert && existingIsHorizontal && needVert)
-                    {
-                        triedVert = true;
-                        int sy = gy - i;
-                        if (CanFitWord(word.answer, gx, sy, false))
-                        {
-                            var entry = new CrosswordEntryPositional { StartX = gx, StartY = sy, isHorizontal = false, entry = word };
-                            PlaceWord(entry);
-                            UsedVerticalEntries.Add(entry);
-                            usedAnswers.Add(word.answer);
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
-    private void TurnOfFUnusedElements()
-    {
-        for (int y = 0; y < MaxGridY; y++)
-            for (int x = 0; x < MaxGridX; x++)
-                if (!grid[x, y].HasLetter)
+        for (int y = 0; y < template.rows.Length; y++)
+            for (int x = 0; x < template.rows[y].Length; x++)
+                if (template.rows[y][x] == '#')
                     grid[x, y].TurnOffGridElement();
     }
 
-    void InitializeGrid()
+    private HashSet<int> LoadUsedTemplateIds(string difficulty)
+    {
+        string filePath = Path.Combine(Application.persistentDataPath, "Grids", $"usedTemplates_{difficulty}.json");
+        if (!File.Exists(filePath)) return new HashSet<int>();
+        var data = JsonUtility.FromJson<UsedTemplateIdList>(File.ReadAllText(filePath));
+        return new HashSet<int>(data.ids);
+    }
+
+    private void SaveUsedTemplateIds(string difficulty, HashSet<int> ids)
+    {
+        string filePath = Path.Combine(Application.persistentDataPath, "Grids", $"usedTemplates_{difficulty}.json");
+        var data = new UsedTemplateIdList { ids = ids.ToList() };
+        File.WriteAllText(filePath, JsonUtility.ToJson(data));
+    }
+
+    private void Shuffle<T>(List<T> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (list[i], list[j]) = (list[j], list[i]);
+        }
+    }
+
+    private void PlaceWord(CrosswordEntryPositional entryInfo)
+    {
+        for (int i = 0; i < entryInfo.entry.answer.Length; i++)
+        {
+            int x = entryInfo.isHorizontal ? entryInfo.StartX + i : entryInfo.StartX;
+            int y = entryInfo.isHorizontal ? entryInfo.StartY : entryInfo.StartY + i;
+            if (grid[x, y].HasLetter) continue;
+            grid[x, y].SetCell(entryInfo.entry.answer[i], entryInfo);
+        }
+    }
+
+    private void InitializeGrid()
     {
         grid = new GeneratedEntry[MaxGridX, MaxGridY];
         int childIndex = 0;
@@ -292,78 +245,33 @@ public class CrosswordGenerator : MonoBehaviour
     private void ClearGrid()
     {
         foreach (var cell in grid) cell.Reset();
-        letterCells.Clear();
     }
+}
 
-    public bool CanFitWord(string word, int startX, int startY, bool isHorizontal, bool requireIntersection = true)
-    {
-        if (startX < 0 || startY < 0) return false;
+[System.Serializable]
+class UsedTemplateIdList
+{
+    public List<int> ids = new List<int>();
+}
 
-        int length = word.Length;
-        int maxX = grid.GetLength(0) - 1;
-        int maxY = grid.GetLength(1) - 1;
+[System.Serializable]
+class GridSlotDef
+{
+    public int number;
+    public string dir;
+    public int row, col, length;
+}
 
-        if (isHorizontal)
-        {
-            if (startX + length > maxX + 1) return false;
-            if (startX > 0 && grid[startX - 1, startY].HasLetter) return false;
-            if (startX + length <= maxX && grid[startX + length, startY].HasLetter) return false;
-        }
-        else
-        {
-            if (startY + length > maxY + 1) return false;
-            if (startY > 0 && grid[startX, startY - 1].HasLetter) return false;
-            if (startY + length <= maxY && grid[startX, startY + length].HasLetter) return false;
-        }
+[System.Serializable]
+class GridTemplateDef
+{
+    public int id;
+    public string[] rows;
+    public GridSlotDef[] slots;
+}
 
-        bool hasIntersection = false;
-
-        for (int i = 0; i < length; i++)
-        {
-            int x = isHorizontal ? startX + i : startX;
-            int y = isHorizontal ? startY : startY + i;
-
-            if (grid[x, y].HasLetter)
-            {
-                if (grid[x, y].GetCell() != word[i]) return false;
-                if (grid[x, y].entryInfo.isHorizontal == isHorizontal) return false;
-                hasIntersection = true;
-            }
-            else if (!IsValidNeighbor(x, y, isHorizontal))
-            {
-                return false;
-            }
-        }
-
-        return !requireIntersection || hasIntersection;
-    }
-
-    private void PlaceWord(CrosswordEntryPositional entryInfo)
-    {
-        for (int i = 0; i < entryInfo.entry.answer.Length; i++)
-        {
-            int x = entryInfo.isHorizontal ? entryInfo.StartX + i : entryInfo.StartX;
-            int y = entryInfo.isHorizontal ? entryInfo.StartY : entryInfo.StartY + i;
-            if (grid[x, y].HasLetter) continue;
-            grid[x, y].SetCell(entryInfo.entry.answer[i], entryInfo);
-            char c = entryInfo.entry.answer[i];
-            if (!letterCells.TryGetValue(c, out var list))
-            {
-                list = new List<(int, int)>();
-                letterCells[c] = list;
-            }
-            list.Add((x, y));
-        }
-    }
-
-    private bool IsValidNeighbor(int x, int y, bool isHorizontal)
-    {
-        int maxX = grid.GetLength(0) - 1;
-        int maxY = grid.GetLength(1) - 1;
-
-        if (!isHorizontal)
-            return !(x > 0 && grid[x - 1, y].HasLetter) && !(x < maxX && grid[x + 1, y].HasLetter);
-        else
-            return !(y > 0 && grid[x, y - 1].HasLetter) && !(y < maxY && grid[x, y + 1].HasLetter);
-    }
+[System.Serializable]
+class GridTemplateFile
+{
+    public GridTemplateDef[] grids;
 }
