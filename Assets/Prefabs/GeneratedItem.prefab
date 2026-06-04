@@ -80,7 +80,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4.34, y: 0}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2881563140909646795
@@ -316,7 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18359a7326e8484fa3f0ff0004f464d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedImg: {fileID: 1948740032594550823}
   entryInfo:
     StartX: 0
     StartY: 0
@@ -328,6 +327,7 @@ MonoBehaviour:
       isUsed: 0
     IsEntryFilled: 0
   CellHolder: {fileID: 495906964369862390}
+  mainImg: {fileID: 1948740032594550823}
   textField: {fileID: 1363205627514535064}
   letterAtCell: 116
   HasLetter: 0

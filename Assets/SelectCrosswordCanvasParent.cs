@@ -86,17 +86,41 @@ public class SelectCrosswordCanvasParent : BaseCanvasParent
 
     private void UpdateCanvas(CanvasGroup group)
     {
-        var itemGroup = CanvasGroups[group].Items;
-        for (var index = 0; index < itemGroup.Length; index++)
-        {
-            var cw = itemGroup[index];
+        var settings = CanvasGroups[group];
+        var items = settings.Items;
+        string key = DifficultyKey(settings.Difficulty);
+        int unlockedCount = ComputeUnlockedCount(key, items.Length);
 
-            if (cw.ShouldUpdate)
-            {
-                cw.SetStructure();
-            }
-   
+        for (int i = 0; i < items.Length; i++)
+            items[i].SetStructure(i >= unlockedCount);
+    }
+
+    private static int ComputeUnlockedCount(string difficulty, int totalItems)
+    {
+        int unlocked = 3;
+        while (unlocked < totalItems)
+        {
+            int complete = CountCompleteInRange(difficulty, unlocked);
+            if (complete >= unlocked - 1)
+                unlocked = Mathf.Min(unlocked + 3, totalItems);
+            else
+                break;
         }
+        return Mathf.Min(unlocked, totalItems);
+    }
+
+    private static int CountCompleteInRange(string difficulty, int count)
+    {
+        int complete = 0;
+        for (int i = 1; i <= count; i++)
+        {
+            string path = CrosswordUtils.GetCrosswordPath(difficulty, i);
+            if (!System.IO.File.Exists(path)) continue;
+            var cw = JsonUtility.FromJson<CrosswordStructure>(System.IO.File.ReadAllText(path));
+            if (cw.horizontalEntries.All(e => e.IsEntryFilled) && cw.verticalEntries.All(e => e.IsEntryFilled))
+                complete++;
+        }
+        return complete;
     }
     
     
@@ -113,7 +137,6 @@ public class SelectCrosswordCanvasParent : BaseCanvasParent
                 gr.Key.alpha = 1;
                 gr.Key.interactable = true;
                 gr.Key.blocksRaycasts = true;
-                
                 UpdateCanvas(gr.Key);
             }
             else
@@ -122,10 +145,10 @@ public class SelectCrosswordCanvasParent : BaseCanvasParent
                 gr.Key.interactable = false;
                 gr.Key.blocksRaycasts = false;
             }
-     
         }
-
     }
+
+
 }
 
 public enum CrosswordsDifficulty

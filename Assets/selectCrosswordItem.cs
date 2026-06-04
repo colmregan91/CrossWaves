@@ -12,7 +12,7 @@ public class selectCrosswordItem : ClickHandlers
 
     [SerializeField] private Image lockImage;
     [SerializeField] private Image ProgressImage;
-    [SerializeField] private Image completeImage;
+    [SerializeField] private Image mainImage;
     [SerializeField] private TextMeshProUGUI  text;
     [SerializeField] private TextMeshProUGUI  progressText;
     private CrosswordStructure structure;
@@ -43,26 +43,33 @@ public class selectCrosswordItem : ClickHandlers
         progressText.text = prog.ToString();
     }
 
-    public void SetStructure()
+    public void SetStructure(bool locked)
     {
-        if (!System.IO.File.Exists(CrosswordUtils.GetCrosswordPath(difficulty, crosswordNumber))) return;
+        if (!System.IO.File.Exists(CrosswordUtils.GetCrosswordPath(difficulty, crosswordNumber)))
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
+        gameObject.SetActive(true);
+
+        if (locked)
+        {
+            Lock();
+            return;
+        }
+
+        Unlock();
         structure = CrosswordUtils.LoadCrosswordFromFile(difficulty, crosswordNumber);
         var horzFilled = structure.horizontalEntries.Select(t => t.IsEntryFilled);
         var vertFilled = structure.verticalEntries.Select(t => t.IsEntryFilled);
-        var totalHorz = horzFilled.Count();
-        var totalVert = vertFilled.Count();
-        bool allTrue = horzFilled.All(val => val) && vertFilled.All(val => val) ;
+        bool allTrue = horzFilled.All(val => val) && vertFilled.All(val => val);
         isComplete = allTrue;
-        var total = totalHorz + totalVert;
-        SetProgress(total);
+        SetProgress(horzFilled.Count() + vertFilled.Count());
         if (isComplete)
-        {
             SetAsCompleted();
-        }
         else
-        {
             SetAsInProgress();
-        }
     }
     
     
@@ -103,14 +110,12 @@ public class selectCrosswordItem : ClickHandlers
     
     public void SetAsInProgress()
     {
-        lockImage.gameObject.SetActive(false);
-        completeImage.gameObject.SetActive(false);
+        mainImage.color = Color.white;
     }
 
     public void SetAsCompleted()
     {
-        lockImage.gameObject.SetActive(false);
-        completeImage.gameObject.SetActive(true);
+        mainImage.color = Color.yellow;
     }
 
 }

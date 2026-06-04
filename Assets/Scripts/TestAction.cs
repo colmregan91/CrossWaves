@@ -23,8 +23,7 @@ public class TestAction : MonoBehaviour
             
         }
 
-        foreach (var item in FindObjectsOfType<selectCrosswordItem>())
-            item.SetStructure();
+        FindObjectOfType<SelectCrosswordCanvasParent>().OnBeforeActive();
 
         Debug.Log("All crossword progress reset.");
     }
