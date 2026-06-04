@@ -13,7 +13,7 @@ public class HintManager : MonoSingleton<HintManager>
     public float fadeDuration = 1.0f; // Duration of the fade effect
 
     private Task fadeTask;
-    public TextMeshProUGUI coinAmountText;
+//    public TextMeshProUGUI coinAmountText;
     private int coinAmount;
     private void Start()
     {
@@ -23,7 +23,7 @@ public class HintManager : MonoSingleton<HintManager>
         }
         
         coinAmount = 100;
-        coinAmountText.text = coinAmount.ToString();
+ //       coinAmountText.text = coinAmount.ToString();
     }
     
     [SerializeField] private Button revealLetterButton;
@@ -46,7 +46,7 @@ public class HintManager : MonoSingleton<HintManager>
     private void DeductCoins(int amount)
     {
         coinAmount -= amount;
-        coinAmountText.text = coinAmount.ToString();
+  //      coinAmountText.text = coinAmount.ToString();
     }
 
     private void HandleRevealLetterClicked()

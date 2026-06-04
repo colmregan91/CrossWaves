@@ -7,7 +7,12 @@
       "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Editor\\\\InspectorButtonDrawer.cs.meta\" -ErrorAction SilentlyContinue -Force)",
       "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Scripts\\\\InspectorButtonAttribute.cs\" -Force)",
       "Bash(Remove-Item \"C:\\\\Users\\\\colmr\\\\Unity\\\\CrossWaves\\\\Assets\\\\Scripts\\\\InspectorButtonAttribute.cs.meta\" -ErrorAction SilentlyContinue -Force)",
-      "Bash(xargs grep -l \"SelectCrosswordCanvasParent\")"
+      "Bash(xargs grep -l \"SelectCrosswordCanvasParent\")",
+      "Bash(Select-String -Path \"Assets\\\\Scenes\\\\Main.unity\" -Pattern \"^--- !u!1 &1486792469$|^--- !u!224 &1486792470$|^--- !u!1 &1895327598$|^--- !u!224 &1895327599$|^--- !u!1 &1974760053$|^--- !u!224 &1974760054$\")",
+      "Bash(Select-Object -First 20)",
+      "Bash(Select-String -Path \"C:\\\\Unity\\\\CrossWaves\\\\Assets\\\\Scenes\\\\Main.unity\" -Pattern \"^--- !u!224 &3724125621962497945\")",
+      "Bash(Select-Object -First 1)",
+      "Bash(powershell *)"
     ]
   }
 }

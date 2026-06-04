@@ -12,32 +12,25 @@ public class SelectCrosswordCanvasParent : BaseCanvasParent
     [SerializeField]private CanvasGroup _easyGroup;
     [SerializeField]private CanvasGroup _intermediateGroup;
     [SerializeField] private CanvasGroup _hardGroup;
-    [SerializeField]private CanvasGroup _veryHardGroup;
     [SerializeField] private CanvasGroup _themedGroup;
-    [SerializeField]private CanvasGroup _letterGroup;
 
     public override void Awake()
     {
         var easyCrosswords = _easyGroup.GetComponentsInChildren<selectCrosswordItem>();
         var intermediateCrosswords = _intermediateGroup.GetComponentsInChildren<selectCrosswordItem>();
         var hardCrosswords = _hardGroup.GetComponentsInChildren<selectCrosswordItem>();
-        var vHardCrosswords = _veryHardGroup.GetComponentsInChildren<selectCrosswordItem>();
+     
         var themedCrosswords = _themedGroup.GetComponentsInChildren<selectCrosswordItem>();
-        var letteredCrosswords = _letterGroup.GetComponentsInChildren<selectCrosswordItem>();
         
         CrosswordSettings easy = new CrosswordSettings(CrosswordsDifficulty.Easy, Color.green,easyCrosswords);
         CrosswordSettings medium = new CrosswordSettings(CrosswordsDifficulty.Intermediate, Color.blue,intermediateCrosswords);
         CrosswordSettings hard = new CrosswordSettings(CrosswordsDifficulty.Hard, Color.magenta,hardCrosswords);
-        CrosswordSettings veryHard = new CrosswordSettings(CrosswordsDifficulty.VeryHard, Color.red,vHardCrosswords);
         CrosswordSettings themed = new CrosswordSettings(CrosswordsDifficulty.Themed, Color.yellow,themedCrosswords);
-        CrosswordSettings letter = new CrosswordSettings(CrosswordsDifficulty.Letter, Color.cyan,letteredCrosswords);
 
         CanvasGroups.Add(_easyGroup, easy);
         CanvasGroups.Add(_intermediateGroup, medium);
         CanvasGroups.Add(_hardGroup, hard);
-        CanvasGroups.Add(_veryHardGroup, veryHard);
         CanvasGroups.Add(_themedGroup, themed);
-        CanvasGroups.Add(_letterGroup, letter);
         
         AddBackButtonOverride(() => CanvasManager.Instance.GoToCanvas<SelectDifficultyCanvasParent>());
     }
@@ -48,9 +41,7 @@ public class SelectCrosswordCanvasParent : BaseCanvasParent
         SetUpCanvas(_easyGroup);
         SetUpCanvas(_intermediateGroup);
         SetUpCanvas(_hardGroup);
-        SetUpCanvas(_veryHardGroup);
         SetUpCanvas(_themedGroup);
-        SetUpCanvas(_letterGroup);
     }
 
     private static string DifficultyKey(CrosswordsDifficulty d) => d switch
@@ -58,9 +49,7 @@ public class SelectCrosswordCanvasParent : BaseCanvasParent
         CrosswordsDifficulty.Easy         => "easy",
         CrosswordsDifficulty.Intermediate => "intermediate",
         CrosswordsDifficulty.Hard         => "hard",
-        CrosswordsDifficulty.VeryHard     => "veryhard",
         CrosswordsDifficulty.Themed       => "themed",
-        CrosswordsDifficulty.Letter       => "letter",
         _                                 => "easy"
     };
 
@@ -156,7 +145,5 @@ public enum CrosswordsDifficulty
     Easy,
     Intermediate,
     Hard,
-    VeryHard,
-    Letter,
     Themed
 }

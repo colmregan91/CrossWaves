@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public  class BaseCanvasParent : MonoBehaviour
 {
-    [SerializeField] private Transform _camLerpPos;
     [SerializeField]private CanvasGroup canvasGroup;
     [SerializeField] private Button backButton;
     public bool isCurrentCanvas;
@@ -22,11 +21,6 @@ public  class BaseCanvasParent : MonoBehaviour
     public virtual void Start()
     {
         
-    }
-
-    public Vector3 GetCamLerpPos()
-    {
-        return _camLerpPos.position;
     }
 
     public virtual void OnActive()

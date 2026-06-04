@@ -9,8 +9,8 @@ public class CanvasManager : MonoSingleton<CanvasManager>
 {
     public CrosswordsDifficulty ChosenDifficulty;
     private BaseCanvasParent[] canvasses;
-    [SerializeField]private Camera camera;
-    
+    [SerializeField] private RectTransform slidesContainer;
+
     private BaseCanvasParent curCanvas;
 
 
@@ -49,7 +49,8 @@ public class CanvasManager : MonoSingleton<CanvasManager>
         {
             curCanvas = targetCanvas;
             curCanvas.OnBeforeActive();
-            camera.transform.DOMove(curCanvas.GetCamLerpPos(), 0.2f).SetEase(Ease.Linear).OnComplete( ()=>      curCanvas.OnActive());
+            RectTransform targetRT = targetCanvas.GetComponent<RectTransform>();
+            slidesContainer.DOAnchorPosX(-targetRT.anchoredPosition.x, 0.2f).SetEase(Ease.Linear).OnComplete(() => curCanvas.OnActive());
       
         }
         else
