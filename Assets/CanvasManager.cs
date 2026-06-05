@@ -9,16 +9,22 @@ public class CanvasManager : MonoSingleton<CanvasManager>
 {
     public CrosswordsDifficulty ChosenDifficulty;
     private BaseCanvasParent[] canvasses;
-    [SerializeField] private RectTransform slidesContainer;
 
+    [SerializeField] private BaseCanvasParent startingCanvas;
     private BaseCanvasParent curCanvas;
-
 
     protected override void Awake()
     {
         base.Awake();
         canvasses = GetComponentsInChildren<BaseCanvasParent>();
-     
+        foreach (var canvas in canvasses)
+        {
+            if (canvas == startingCanvas) continue;
+            canvas.CanvasGroup.alpha = 0;
+            canvas.CanvasGroup.interactable = false;
+            canvas.CanvasGroup.blocksRaycasts = false;
+        }
+        curCanvas = startingCanvas;
     }
     
     
@@ -49,9 +55,7 @@ public class CanvasManager : MonoSingleton<CanvasManager>
         {
             curCanvas = targetCanvas;
             curCanvas.OnBeforeActive();
-            RectTransform targetRT = targetCanvas.GetComponent<RectTransform>();
-            slidesContainer.DOAnchorPosX(-targetRT.anchoredPosition.x, 0.2f).SetEase(Ease.Linear).OnComplete(() => curCanvas.OnActive());
-      
+            curCanvas.CanvasGroup.DOFade(1f, 0.2f).OnComplete(() => curCanvas.OnActive());
         }
         else
         {

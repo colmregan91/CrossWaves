@@ -28,12 +28,13 @@ public class HintManager : MonoSingleton<HintManager>
     
     [SerializeField] private Button revealLetterButton;
     [SerializeField] private Button revealWorrdButton;
+    [SerializeField] private Button buyHintButton;
 
     private void OnEnable()
     {
         revealLetterButton.onClick.AddListener(HandleRevealLetterClicked);
         revealWorrdButton.onClick.AddListener(HandleRevealWordClicked);
-
+        buyHintButton.onClick.AddListener(OpenHintMenu);
     }
     
     private void HandleRevealWordClicked()
@@ -60,7 +61,7 @@ public class HintManager : MonoSingleton<HintManager>
     {
         revealLetterButton.onClick.RemoveListener(HandleRevealLetterClicked);
         revealWorrdButton.onClick.RemoveListener(HandleRevealWordClicked);
-
+        buyHintButton.onClick.RemoveListener(OpenHintMenu);
     }
 
     public void OpenHintMenu()

@@ -1,11 +1,13 @@
 using System;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public  class BaseCanvasParent : MonoBehaviour
 {
-    [SerializeField]private CanvasGroup canvasGroup;
+    [SerializeField] private CanvasGroup canvasGroup;
+    public CanvasGroup CanvasGroup => canvasGroup;
     [SerializeField] private Button backButton;
     public bool isCurrentCanvas;
     public virtual void Awake()
@@ -26,6 +28,7 @@ public  class BaseCanvasParent : MonoBehaviour
     public virtual void OnActive()
     {
         canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
         isCurrentCanvas = true;
     }
     
@@ -35,7 +38,9 @@ public  class BaseCanvasParent : MonoBehaviour
 
     public virtual void OnInActive()
     {
+        canvasGroup.DOFade(0f, 0.2f);
         canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
         isCurrentCanvas = false;
     }
 
