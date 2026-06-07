@@ -68,7 +68,7 @@ public class Letter : ClickHandlers,  IQueuedObject
             return;
         }
         SetSelected(true);
-        LetterInputManager.Instance.OnLetterSelected?.Invoke(this);
+        LetterInputManager.Instance.OnLetterSelected?.Invoke(letterChar);
     }
 
     public override void OnDrag(PointerEventData eventData)

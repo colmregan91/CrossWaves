@@ -12,8 +12,7 @@ public class LetterInputManager : MonoSingleton<LetterInputManager>
 
     public Action OnCorrectAnswer;
     private InputtedLetter[] AllInputLetters;
-    public Action<Letter> OnLetterSelected;
-
+    public Action<char> OnLetterSelected;
     private InputtedLetter[] UsedLetters => AllInputLetters.Where(t => t.gameObject.activeSelf && t.isShowing).ToArray();
 
     private CollectionOrganiser<FloatedLetters> _floatedletterCollection;
@@ -96,7 +95,7 @@ public class LetterInputManager : MonoSingleton<LetterInputManager>
     }
 
 
-    private void HandleLetterInput(Letter letter)
+    private void HandleLetterInput(char letter)
     {
         for (int i = 0; i < AllInputLetters.Length; i++)
         {
@@ -105,13 +104,25 @@ public class LetterInputManager : MonoSingleton<LetterInputManager>
                 continue;
             }
 
-            AllInputLetters[i].ShowLetter(letter.letterChar);
+            AllInputLetters[i].ShowLetter(letter);
             break;
         }
 
         CheckWord();
     }
 
+
+    public void Backspace()
+    {
+        for (int i = AllInputLetters.Length - 1; i >= 0; i--)
+        {
+            if (AllInputLetters[i].isShowing)
+            {
+                AllInputLetters[i].ClearLetter();
+                break;
+            }
+        }
+    }
 
     private void CheckWord()
     {

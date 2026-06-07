@@ -26,12 +26,6 @@ public class LetterManager : MonoBehaviour
     
     private void OnEnable()
     {
-        LetterInputManager.Instance.OnLetterSelected += HandleLetterSelected;
-    }
-
-    private void HandleLetterSelected(Letter obj)
-    {
-        obj.SetSelected(true);
     }
 
     public void UnselectLetters()
@@ -149,7 +143,6 @@ public class LetterManager : MonoBehaviour
 
     private void OnDisable()
     {
-        LetterInputManager.Instance.OnLetterSelected -= HandleLetterSelected;
     }
 }
 
