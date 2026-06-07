@@ -23,6 +23,8 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
     public Action<List<CrosswordGridEntry>, CrosswordEntryPositional> OnNewWordClicked;
     public Action<int, CrosswordGridEntry> OnLetterRevealed;
     public Action<List<CrosswordGridEntry>> OnWordRevealed;
+    public Action OnGridLoaded;
+    public Action OnPuzzleLeft;
 
     private List<CrosswordGridEntry> SelectedPositions = new List<CrosswordGridEntry>();
 
@@ -186,6 +188,7 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
 
     private void GoToCrosswordSelect()
     {
+        OnPuzzleLeft?.Invoke();
         CanvasManager.Instance.GoToCanvas<SelectCrosswordCanvasParent>();
     }
 
@@ -292,6 +295,7 @@ public class CrosswordManager : MonoSingleton<CrosswordManager>
         }
 
         TurnOfFUnusedElements();
+        OnGridLoaded?.Invoke();
 
         allQuestions.AddRange(curCrossword.horizontalEntries);
         allQuestions.AddRange(curCrossword.verticalEntries);
