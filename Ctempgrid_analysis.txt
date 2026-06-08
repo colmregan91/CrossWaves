@@ -1,0 +1,1866 @@
+Template ID: 1
+  Slot lengths: 8, 5, 5, 4, 7, 5, 4, 5, 4, 4, 4, 5, 7, 8, 5, 4, 5, 4, 5, 4, 4, 5, 4, 5
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 10 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 2
+  Slot lengths: 3, 6, 8, 4, 5, 4, 5, 8, 9, 8, 4, 5, 5, 6, 5, 5, 5, 4, 4, 4, 9, 5, 3, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 8: 4 slots
+    Length 9: 2 slots
+
+Template ID: 3
+  Slot lengths: 5, 7, 6, 5, 4, 5, 4, 4, 6, 5, 6, 5, 5, 7, 5, 5, 6, 5, 4, 5, 5, 4, 4, 5
+  Length breakdown:
+    Length 4: 6 slots
+    Length 5: 12 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+
+Template ID: 4
+  Slot lengths: 7, 3, 7, 4, 4, 6, 4, 7, 4, 5, 4, 7, 5, 6, 5, 7, 4, 4, 4, 5, 4, 3, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 6 slots
+
+Template ID: 5
+  Slot lengths: 4, 4, 4, 3, 7, 6, 8, 8, 8, 4, 8, 8, 4, 4, 6, 4, 4, 4, 4, 4, 8, 3, 7, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 6 slots
+
+Template ID: 6
+  Slot lengths: 3, 5, 4, 4, 4, 9, 9, 5, 9, 9, 7, 4, 4, 4, 4, 4, 4, 5, 7, 4, 5, 3, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 7: 2 slots
+    Length 9: 4 slots
+
+Template ID: 7
+  Slot lengths: 5, 4, 6, 4, 4, 8, 5, 4, 6, 4, 8, 6, 7, 4, 4, 7, 6, 4, 5, 4, 4, 4, 5, 4
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 8
+  Slot lengths: 4, 6, 6, 4, 4, 5, 6, 4, 6, 4, 4, 4, 8, 8, 4, 4, 6, 4, 4, 6, 4, 6, 5, 6
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 2 slots
+    Length 6: 8 slots
+    Length 8: 2 slots
+
+Template ID: 9
+  Slot lengths: 5, 6, 6, 5, 8, 5, 4, 4, 7, 6, 4, 8, 4, 4, 5, 8, 6, 6, 6, 5, 7, 4, 8, 5
+  Length breakdown:
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 10
+  Slot lengths: 5, 5, 4, 4, 9, 10, 4, 10, 4, 9, 7, 3, 6, 5, 5, 3, 5, 6, 5, 4, 7, 4, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+    Length 10: 2 slots
+
+Template ID: 11
+  Slot lengths: 4, 4, 8, 5, 5, 7, 4, 5, 3, 5, 5, 8, 7, 5, 5, 4, 5, 5, 3, 5, 5, 4, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 12 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 12
+  Slot lengths: 5, 7, 4, 7, 6, 4, 5, 5, 3, 5, 4, 4, 7, 4, 6, 3, 4, 4, 5, 5, 4, 5, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 13
+  Slot lengths: 5, 4, 7, 4, 4, 8, 6, 6, 6, 4, 8, 4, 6, 7, 4, 4, 4, 4, 5, 4, 6, 4, 6, 4
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 14
+  Slot lengths: 4, 6, 4, 5, 6, 6, 8, 4, 4, 4, 8, 5, 4, 4, 6, 6, 5, 6, 4, 5, 4, 4, 4, 4
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 8: 2 slots
+
+Template ID: 15
+  Slot lengths: 8, 5, 5, 4, 8, 5, 5, 4, 4, 6, 5, 5, 4, 4, 5, 5, 5, 5, 4, 5, 6, 5, 8, 8
+  Length breakdown:
+    Length 4: 6 slots
+    Length 5: 12 slots
+    Length 6: 2 slots
+    Length 8: 4 slots
+
+Template ID: 16
+  Slot lengths: 4, 4, 4, 7, 4, 3, 9, 5, 8, 9, 5, 8, 5, 7, 7, 7, 5, 4, 3, 4, 5, 5, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 17
+  Slot lengths: 5, 4, 4, 8, 5, 9, 3, 4, 4, 9, 5, 5, 8, 5, 5, 5, 5, 4, 4, 4, 4, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 10 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 18
+  Slot lengths: 4, 6, 4, 10, 8, 4, 4, 4, 5, 5, 10, 4, 3, 8, 5, 4, 3, 4, 5, 4, 4, 4, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 19
+  Slot lengths: 9, 5, 5, 5, 5, 7, 8, 5, 7, 3, 4, 9, 4, 5, 6, 6, 3, 5, 4, 5, 4, 8, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 10 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 20
+  Slot lengths: 7, 4, 6, 6, 7, 3, 4, 5, 5, 4, 4, 5, 7, 5, 6, 6, 4, 4, 4, 4, 5, 3, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+
+Template ID: 21
+  Slot lengths: 5, 7, 5, 5, 9, 6, 4, 5, 3, 4, 5, 4, 4, 6, 4, 7, 3, 5, 5, 5, 5, 4, 9, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 10 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 22
+  Slot lengths: 6, 4, 5, 7, 5, 7, 4, 6, 5, 4, 4, 5, 4, 4, 7, 5, 4, 6, 5, 5, 6, 7, 5, 4
+  Length breakdown:
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+
+Template ID: 23
+  Slot lengths: 6, 4, 6, 8, 5, 4, 4, 7, 4, 4, 5, 4, 3, 3, 6, 5, 5, 6, 4, 4, 7, 4, 8, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 24
+  Slot lengths: 8, 6, 4, 6, 5, 5, 4, 3, 4, 5, 4, 7, 5, 8, 7, 4, 5, 3, 4, 4, 4, 5, 6, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 25
+  Slot lengths: 8, 8, 5, 5, 4, 4, 3, 7, 4, 4, 4, 5, 8, 8, 5, 4, 5, 4, 4, 4, 3, 7, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 26
+  Slot lengths: 5, 5, 6, 6, 7, 3, 5, 5, 4, 4, 4, 7, 7, 6, 5, 7, 4, 5, 4, 4, 3, 5, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 8 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+
+Template ID: 27
+  Slot lengths: 4, 5, 5, 6, 4, 3, 5, 4, 4, 5, 4, 7, 5, 6, 7, 4, 5, 5, 4, 4, 3, 5, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+
+Template ID: 28
+  Slot lengths: 7, 4, 5, 6, 4, 3, 7, 4, 4, 5, 4, 7, 5, 7, 6, 7, 4, 5, 4, 4, 3, 7, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 6 slots
+
+Template ID: 29
+  Slot lengths: 7, 5, 5, 6, 4, 5, 3, 4, 4, 5, 4, 7, 5, 7, 6, 7, 4, 5, 5, 4, 4, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 30
+  Slot lengths: 6, 4, 4, 6, 7, 5, 4, 3, 4, 4, 4, 10, 7, 10, 4, 4, 5, 4, 4, 4, 4, 3, 6, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 2 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 31
+  Slot lengths: 6, 4, 6, 4, 7, 5, 5, 3, 5, 4, 4, 7, 5, 7, 6, 5, 5, 4, 4, 4, 4, 3, 7, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+
+Template ID: 32
+  Slot lengths: 6, 4, 4, 4, 7, 5, 3, 4, 5, 8, 4, 7, 5, 7, 4, 5, 6, 4, 4, 8, 4, 3, 7, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 33
+  Slot lengths: 6, 6, 4, 4, 5, 4, 5, 4, 5, 4, 4, 7, 5, 7, 4, 4, 6, 4, 4, 4, 4, 5, 5, 6
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+
+Template ID: 34
+  Slot lengths: 6, 4, 4, 6, 4, 6, 7, 5, 4, 3, 4, 8, 7, 8, 6, 3, 6, 4, 4, 4, 4, 5, 6, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 35
+  Slot lengths: 6, 3, 6, 4, 4, 6, 7, 5, 5, 4, 4, 7, 7, 7, 5, 6, 6, 4, 4, 4, 4, 5, 6, 3
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 36
+  Slot lengths: 4, 6, 4, 5, 4, 7, 5, 5, 3, 4, 4, 7, 7, 7, 5, 6, 5, 5, 4, 4, 4, 3, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 37
+  Slot lengths: 6, 5, 6, 4, 6, 4, 4, 5, 5, 4, 4, 9, 5, 9, 6, 6, 6, 4, 4, 4, 4, 5, 4, 5
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 9: 2 slots
+
+Template ID: 38
+  Slot lengths: 4, 6, 4, 4, 7, 5, 5, 4, 5, 4, 4, 9, 7, 5, 9, 5, 4, 6, 4, 4, 4, 5, 4, 4
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 39
+  Slot lengths: 3, 4, 6, 5, 7, 5, 5, 4, 5, 4, 4, 10, 7, 5, 10, 6, 5, 4, 4, 4, 4, 5, 5, 3
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 40
+  Slot lengths: 5, 6, 4, 4, 7, 5, 5, 4, 5, 4, 4, 10, 7, 5, 10, 6, 4, 5, 4, 4, 4, 5, 4, 5
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 41
+  Slot lengths: 6, 5, 6, 4, 3, 7, 4, 4, 5, 4, 4, 10, 5, 10, 6, 4, 4, 6, 4, 4, 3, 7, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 42
+  Slot lengths: 4, 5, 6, 4, 5, 5, 7, 4, 5, 4, 4, 8, 5, 8, 4, 6, 5, 4, 4, 4, 4, 7, 5, 5
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 43
+  Slot lengths: 5, 4, 6, 4, 4, 5, 3, 7, 5, 4, 4, 7, 5, 7, 6, 5, 4, 4, 4, 4, 3, 7, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 44
+  Slot lengths: 5, 4, 5, 4, 5, 5, 3, 4, 5, 4, 4, 7, 5, 7, 4, 5, 5, 5, 4, 4, 4, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 10 slots
+    Length 7: 2 slots
+
+Template ID: 45
+  Slot lengths: 7, 6, 4, 6, 5, 3, 4, 4, 5, 6, 4, 8, 5, 8, 4, 4, 6, 5, 4, 6, 4, 3, 6, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 46
+  Slot lengths: 4, 5, 4, 6, 7, 4, 7, 5, 3, 6, 4, 7, 7, 7, 7, 6, 3, 4, 6, 4, 4, 5, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 6 slots
+
+Template ID: 47
+  Slot lengths: 6, 4, 4, 7, 4, 5, 5, 4, 3, 4, 4, 7, 7, 7, 4, 6, 5, 3, 4, 4, 4, 5, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 48
+  Slot lengths: 4, 5, 4, 4, 5, 6, 4, 3, 8, 7, 7, 4, 8, 6, 8, 5, 4, 8, 4, 4, 4, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 49
+  Slot lengths: 6, 5, 4, 4, 6, 6, 5, 3, 6, 5, 4, 8, 5, 6, 8, 6, 5, 4, 4, 6, 4, 3, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 8 slots
+    Length 8: 2 slots
+
+Template ID: 50
+  Slot lengths: 4, 4, 6, 6, 6, 5, 7, 3, 4, 4, 4, 10, 7, 10, 4, 6, 6, 5, 4, 4, 4, 3, 6, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 51
+  Slot lengths: 8, 4, 4, 4, 6, 5, 5, 5, 4, 4, 4, 8, 8, 4, 8, 6, 5, 4, 4, 4, 4, 5, 5, 4
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 8: 4 slots
+
+Template ID: 52
+  Slot lengths: 8, 5, 6, 5, 5, 6, 5, 3, 4, 6, 4, 5, 8, 4, 5, 6, 5, 5, 5, 4, 6, 3, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 10 slots
+    Length 6: 6 slots
+    Length 8: 2 slots
+
+Template ID: 53
+  Slot lengths: 8, 6, 5, 4, 4, 5, 7, 4, 3, 6, 4, 5, 8, 7, 5, 6, 5, 4, 6, 4, 4, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 54
+  Slot lengths: 9, 4, 4, 4, 7, 7, 5, 4, 3, 4, 4, 9, 5, 7, 5, 5, 4, 4, 4, 4, 4, 3, 7, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 7: 4 slots
+    Length 9: 2 slots
+
+Template ID: 55
+  Slot lengths: 8, 5, 4, 4, 5, 6, 8, 5, 3, 4, 4, 8, 5, 8, 5, 5, 5, 4, 4, 4, 4, 3, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 8: 4 slots
+
+Template ID: 56
+  Slot lengths: 6, 4, 4, 4, 6, 7, 5, 4, 3, 6, 4, 7, 7, 7, 5, 6, 4, 4, 6, 4, 4, 3, 6, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 57
+  Slot lengths: 8, 4, 4, 4, 6, 5, 4, 3, 5, 6, 5, 7, 8, 5, 7, 5, 4, 5, 6, 4, 4, 3, 6, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 58
+  Slot lengths: 4, 6, 4, 6, 7, 7, 5, 4, 5, 4, 4, 7, 7, 7, 7, 6, 5, 4, 4, 4, 4, 5, 6, 4
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 6 slots
+
+Template ID: 59
+  Slot lengths: 5, 4, 4, 6, 10, 3, 4, 5, 10, 5, 6, 4, 7, 5, 7, 4, 4, 6, 4, 4, 3, 5, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 60
+  Slot lengths: 4, 4, 4, 4, 6, 5, 10, 4, 5, 10, 6, 4, 7, 7, 5, 4, 4, 6, 4, 4, 4, 5, 6, 4
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 61
+  Slot lengths: 4, 4, 4, 4, 5, 6, 6, 5, 8, 8, 8, 3, 6, 6, 6, 5, 3, 8, 4, 4, 4, 5, 6, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 8: 4 slots
+
+Template ID: 62
+  Slot lengths: 4, 3, 4, 4, 7, 5, 5, 5, 5, 6, 4, 6, 10, 7, 10, 5, 5, 4, 4, 5, 5, 3, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 63
+  Slot lengths: 5, 6, 3, 4, 4, 4, 5, 8, 5, 5, 4, 8, 8, 8, 6, 5, 4, 4, 4, 5, 5, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 8: 4 slots
+
+Template ID: 64
+  Slot lengths: 6, 4, 4, 6, 4, 5, 3, 5, 6, 6, 4, 6, 8, 8, 6, 5, 4, 4, 6, 4, 3, 5, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 8 slots
+    Length 8: 2 slots
+
+Template ID: 65
+  Slot lengths: 3, 6, 8, 5, 7, 4, 4, 8, 6, 4, 4, 6, 7, 7, 6, 7, 5, 4, 4, 4, 8, 4, 3, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 2 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+    Length 8: 4 slots
+
+Template ID: 66
+  Slot lengths: 10, 6, 5, 7, 4, 4, 4, 8, 4, 4, 4, 5, 7, 4, 6, 5, 5, 4, 4, 4, 4, 8, 4, 10
+  Length breakdown:
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 67
+  Slot lengths: 6, 9, 7, 4, 5, 4, 8, 4, 3, 4, 4, 7, 7, 4, 5, 6, 7, 3, 4, 4, 4, 8, 4, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 68
+  Slot lengths: 4, 5, 10, 6, 5, 4, 4, 8, 6, 3, 4, 6, 7, 6, 7, 5, 4, 4, 5, 3, 8, 4, 4, 10
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 69
+  Slot lengths: 5, 3, 8, 6, 5, 4, 8, 4, 5, 4, 5, 7, 5, 4, 6, 7, 5, 5, 5, 4, 8, 4, 3, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 70
+  Slot lengths: 3, 7, 5, 4, 7, 4, 6, 6, 4, 5, 4, 6, 7, 7, 4, 7, 5, 5, 4, 4, 6, 4, 3, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 6 slots
+
+Template ID: 71
+  Slot lengths: 5, 3, 9, 4, 5, 7, 5, 8, 4, 4, 5, 7, 5, 4, 5, 5, 5, 5, 4, 4, 8, 5, 3, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 10 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 72
+  Slot lengths: 5, 7, 4, 4, 5, 4, 8, 6, 10, 8, 4, 5, 6, 5, 5, 4, 5, 5, 4, 4, 4, 10, 5, 7
+  Length breakdown:
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 73
+  Slot lengths: 4, 5, 8, 8, 4, 4, 4, 8, 4, 3, 5, 8, 7, 4, 7, 4, 5, 5, 4, 3, 8, 4, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 7: 2 slots
+    Length 8: 6 slots
+
+Template ID: 74
+  Slot lengths: 5, 5, 7, 4, 4, 6, 6, 8, 4, 4, 5, 6, 5, 6, 4, 5, 5, 5, 4, 4, 5, 8, 4, 7
+  Length breakdown:
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 75
+  Slot lengths: 4, 9, 5, 7, 5, 4, 6, 8, 4, 4, 3, 6, 8, 7, 4, 8, 5, 5, 3, 4, 4, 8, 4, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+    Length 9: 2 slots
+
+Template ID: 76
+  Slot lengths: 7, 5, 5, 6, 5, 4, 8, 6, 5, 4, 4, 6, 5, 5, 7, 5, 5, 4, 5, 5, 4, 8, 4, 6
+  Length breakdown:
+    Length 4: 6 slots
+    Length 5: 10 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 77
+  Slot lengths: 5, 5, 7, 6, 4, 4, 8, 6, 7, 7, 5, 4, 6, 3, 7, 3, 4, 4, 5, 5, 5, 8, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 78
+  Slot lengths: 5, 6, 8, 7, 4, 4, 8, 8, 4, 8, 3, 4, 4, 7, 4, 4, 6, 4, 4, 3, 5, 8, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 6 slots
+
+Template ID: 79
+  Slot lengths: 5, 8, 4, 5, 4, 8, 6, 8, 4, 8, 3, 5, 6, 6, 4, 6, 5, 5, 5, 3, 4, 8, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 8: 6 slots
+
+Template ID: 80
+  Slot lengths: 5, 7, 5, 4, 4, 8, 4, 8, 6, 8, 3, 5, 6, 9, 4, 9, 5, 5, 5, 4, 3, 8, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+    Length 9: 2 slots
+
+Template ID: 81
+  Slot lengths: 7, 5, 4, 4, 5, 7, 4, 6, 6, 3, 5, 6, 6, 9, 4, 9, 5, 5, 4, 4, 3, 7, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+    Length 9: 2 slots
+
+Template ID: 82
+  Slot lengths: 7, 5, 4, 4, 7, 5, 8, 4, 6, 3, 5, 6, 7, 7, 4, 7, 5, 5, 4, 4, 3, 8, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 6 slots
+    Length 8: 2 slots
+
+Template ID: 83
+  Slot lengths: 6, 7, 5, 4, 5, 5, 5, 4, 6, 3, 5, 6, 9, 4, 5, 6, 9, 5, 5, 4, 3, 5, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 10 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 84
+  Slot lengths: 6, 5, 7, 5, 4, 8, 4, 4, 5, 3, 4, 10, 5, 4, 4, 10, 6, 5, 4, 5, 3, 8, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 85
+  Slot lengths: 5, 7, 4, 4, 4, 8, 6, 4, 5, 3, 4, 6, 5, 5, 4, 5, 4, 5, 4, 3, 4, 8, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 86
+  Slot lengths: 8, 5, 4, 4, 4, 10, 4, 4, 7, 7, 3, 5, 7, 4, 4, 7, 5, 5, 4, 4, 3, 10, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 87
+  Slot lengths: 6, 8, 6, 4, 4, 4, 10, 4, 7, 7, 3, 4, 5, 4, 6, 6, 5, 4, 4, 3, 4, 10, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 88
+  Slot lengths: 6, 8, 5, 5, 4, 4, 8, 8, 4, 8, 3, 4, 9, 4, 6, 9, 5, 5, 4, 4, 3, 8, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 8: 6 slots
+    Length 9: 2 slots
+
+Template ID: 89
+  Slot lengths: 5, 9, 5, 5, 4, 6, 5, 6, 4, 5, 3, 9, 5, 6, 5, 5, 5, 3, 4, 5, 5, 4, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 12 slots
+    Length 6: 4 slots
+    Length 9: 2 slots
+
+Template ID: 90
+  Slot lengths: 5, 5, 8, 6, 7, 4, 6, 4, 4, 3, 4, 8, 5, 7, 6, 5, 4, 4, 4, 5, 3, 4, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 91
+  Slot lengths: 9, 6, 4, 5, 4, 4, 5, 4, 4, 3, 4, 9, 7, 5, 7, 4, 4, 4, 5, 3, 4, 4, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 92
+  Slot lengths: 7, 6, 5, 4, 6, 5, 4, 4, 3, 5, 4, 5, 9, 5, 9, 5, 4, 6, 4, 4, 3, 4, 6, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 93
+  Slot lengths: 7, 6, 4, 4, 5, 4, 6, 4, 5, 5, 4, 5, 6, 5, 5, 4, 6, 4, 4, 4, 5, 4, 5, 7
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 8 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+
+Template ID: 94
+  Slot lengths: 8, 6, 6, 4, 4, 5, 6, 6, 5, 3, 6, 4, 5, 3, 5, 6, 6, 4, 4, 4, 5, 6, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 8 slots
+    Length 8: 2 slots
+
+Template ID: 95
+  Slot lengths: 7, 6, 4, 4, 5, 8, 4, 4, 6, 8, 3, 4, 5, 4, 5, 6, 4, 4, 4, 4, 3, 6, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 96
+  Slot lengths: 7, 8, 5, 5, 5, 4, 4, 5, 5, 4, 5, 3, 9, 8, 3, 9, 5, 5, 4, 4, 5, 4, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 10 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 97
+  Slot lengths: 9, 5, 5, 5, 7, 4, 4, 4, 5, 4, 7, 3, 5, 3, 5, 4, 4, 4, 5, 5, 5, 4, 5, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 10 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 98
+  Slot lengths: 8, 3, 9, 5, 4, 6, 5, 4, 4, 4, 4, 9, 5, 4, 5, 5, 4, 4, 4, 4, 6, 3, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 99
+  Slot lengths: 9, 3, 9, 4, 4, 5, 6, 4, 4, 4, 4, 9, 5, 4, 5, 5, 4, 4, 4, 4, 6, 3, 4, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 9: 4 slots
+
+Template ID: 100
+  Slot lengths: 10, 5, 7, 4, 3, 5, 4, 4, 4, 7, 4, 4, 4, 7, 4, 5, 4, 4, 7, 5, 3, 4, 4, 10
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 7: 4 slots
+    Length 10: 2 slots
+
+Template ID: 101
+  Slot lengths: 7, 6, 5, 4, 6, 4, 8, 3, 5, 5, 4, 4, 6, 4, 5, 7, 4, 4, 5, 5, 3, 8, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 102
+  Slot lengths: 4, 6, 6, 5, 6, 4, 4, 5, 4, 5, 7, 3, 4, 3, 6, 6, 6, 5, 7, 5, 4, 5, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+
+Template ID: 103
+  Slot lengths: 5, 7, 4, 6, 4, 3, 6, 6, 5, 5, 6, 4, 6, 5, 4, 7, 6, 6, 5, 4, 5, 6, 3, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 8 slots
+    Length 7: 2 slots
+
+Template ID: 104
+  Slot lengths: 7, 4, 6, 4, 6, 3, 6, 5, 4, 5, 4, 5, 6, 4, 5, 6, 7, 6, 4, 5, 4, 5, 3, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+
+Template ID: 105
+  Slot lengths: 6, 5, 4, 4, 4, 8, 5, 4, 4, 3, 7, 6, 4, 6, 5, 4, 7, 4, 3, 5, 4, 8, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 106
+  Slot lengths: 5, 6, 6, 4, 6, 4, 8, 3, 5, 5, 4, 5, 6, 5, 5, 6, 4, 4, 5, 3, 5, 8, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 8 slots
+    Length 6: 6 slots
+    Length 8: 2 slots
+
+Template ID: 107
+  Slot lengths: 5, 5, 6, 4, 4, 6, 3, 4, 5, 5, 4, 5, 6, 5, 5, 6, 4, 4, 5, 3, 5, 4, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 10 slots
+    Length 6: 4 slots
+
+Template ID: 108
+  Slot lengths: 6, 6, 5, 4, 4, 6, 5, 5, 4, 5, 6, 5, 4, 5, 5, 5, 6, 5, 6, 4, 5, 6, 4, 6
+  Length breakdown:
+    Length 4: 6 slots
+    Length 5: 10 slots
+    Length 6: 8 slots
+
+Template ID: 109
+  Slot lengths: 6, 7, 7, 5, 5, 3, 4, 5, 4, 5, 6, 4, 7, 4, 5, 7, 4, 6, 5, 5, 3, 4, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 8 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+
+Template ID: 110
+  Slot lengths: 7, 7, 5, 4, 4, 7, 4, 4, 4, 5, 6, 5, 4, 5, 7, 4, 4, 6, 4, 5, 5, 7, 4, 7
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 6 slots
+
+Template ID: 111
+  Slot lengths: 4, 4, 5, 3, 5, 6, 9, 9, 9, 4, 5, 4, 4, 6, 4, 4, 4, 5, 4, 4, 9, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 9: 4 slots
+
+Template ID: 112
+  Slot lengths: 4, 4, 5, 3, 4, 8, 8, 7, 4, 4, 6, 7, 8, 4, 4, 4, 6, 4, 4, 4, 8, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 2 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 113
+  Slot lengths: 4, 4, 5, 3, 6, 8, 7, 4, 4, 6, 5, 6, 8, 6, 4, 6, 5, 4, 4, 4, 7, 3, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 114
+  Slot lengths: 7, 8, 4, 4, 3, 5, 4, 4, 4, 5, 5, 4, 8, 7, 4, 8, 4, 4, 4, 4, 4, 3, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 115
+  Slot lengths: 8, 6, 4, 3, 4, 5, 4, 7, 4, 6, 4, 6, 4, 4, 4, 6, 6, 6, 7, 4, 5, 3, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 116
+  Slot lengths: 7, 7, 4, 3, 4, 5, 4, 4, 8, 5, 6, 5, 5, 7, 4, 5, 5, 6, 8, 4, 4, 3, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 117
+  Slot lengths: 8, 4, 5, 3, 4, 6, 4, 4, 7, 5, 7, 5, 5, 6, 4, 5, 7, 5, 7, 4, 4, 3, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 118
+  Slot lengths: 8, 4, 5, 3, 4, 6, 5, 6, 7, 5, 6, 4, 6, 5, 6, 4, 6, 5, 7, 4, 5, 3, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 119
+  Slot lengths: 7, 8, 4, 4, 3, 4, 4, 8, 7, 8, 5, 4, 4, 5, 7, 4, 4, 7, 4, 4, 4, 3, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 2 slots
+    Length 7: 4 slots
+    Length 8: 4 slots
+
+Template ID: 120
+  Slot lengths: 9, 4, 4, 3, 5, 6, 6, 4, 6, 6, 4, 5, 4, 6, 4, 5, 6, 6, 4, 4, 6, 3, 5, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 8 slots
+    Length 9: 2 slots
+
+Template ID: 121
+  Slot lengths: 9, 4, 4, 3, 4, 6, 6, 4, 6, 4, 4, 7, 4, 4, 6, 7, 6, 4, 4, 4, 6, 3, 4, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 122
+  Slot lengths: 8, 5, 5, 4, 6, 3, 7, 4, 4, 6, 4, 6, 4, 4, 6, 6, 6, 5, 5, 4, 3, 7, 4, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 123
+  Slot lengths: 7, 4, 7, 5, 4, 6, 3, 4, 6, 7, 4, 6, 4, 4, 7, 4, 7, 3, 5, 4, 4, 6, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 4 slots
+    Length 7: 6 slots
+
+Template ID: 124
+  Slot lengths: 4, 6, 5, 6, 6, 4, 3, 4, 6, 6, 8, 6, 6, 4, 6, 4, 8, 3, 5, 4, 4, 4, 6, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 2 slots
+    Length 6: 10 slots
+    Length 8: 2 slots
+
+Template ID: 125
+  Slot lengths: 4, 6, 5, 4, 5, 3, 4, 4, 6, 6, 4, 6, 4, 4, 4, 4, 6, 3, 5, 4, 4, 5, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+
+Template ID: 126
+  Slot lengths: 4, 6, 5, 5, 4, 4, 7, 4, 6, 5, 6, 6, 3, 5, 4, 3, 6, 5, 5, 7, 4, 4, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+
+Template ID: 127
+  Slot lengths: 4, 6, 5, 3, 6, 4, 8, 6, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 8, 4, 4, 3, 6, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 6 slots
+    Length 6: 10 slots
+    Length 8: 2 slots
+
+Template ID: 128
+  Slot lengths: 6, 5, 5, 3, 6, 8, 4, 6, 5, 7, 7, 6, 8, 5, 6, 5, 6, 6, 5, 5, 4, 3, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 2 slots
+    Length 5: 8 slots
+    Length 6: 8 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 129
+  Slot lengths: 4, 5, 3, 5, 10, 4, 4, 6, 10, 5, 7, 7, 5, 5, 6, 5, 5, 4, 5, 4, 4, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 10 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 130
+  Slot lengths: 4, 5, 3, 7, 5, 4, 8, 8, 5, 5, 4, 4, 7, 4, 5, 7, 5, 4, 5, 4, 4, 3, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 131
+  Slot lengths: 5, 3, 7, 10, 5, 4, 4, 10, 5, 5, 6, 4, 6, 4, 5, 6, 5, 6, 4, 5, 4, 3, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 8 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 132
+  Slot lengths: 6, 5, 3, 7, 10, 5, 4, 4, 10, 5, 5, 6, 5, 5, 4, 5, 5, 6, 5, 5, 4, 3, 7, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 10 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 10: 2 slots
+
+Template ID: 133
+  Slot lengths: 5, 3, 5, 10, 5, 5, 4, 4, 10, 5, 7, 7, 6, 8, 4, 8, 5, 5, 6, 5, 4, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 10 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 134
+  Slot lengths: 6, 3, 6, 5, 4, 4, 4, 6, 5, 7, 7, 8, 6, 8, 4, 8, 4, 5, 8, 5, 4, 3, 6, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 135
+  Slot lengths: 5, 3, 5, 5, 4, 4, 6, 6, 4, 6, 9, 6, 6, 8, 6, 8, 4, 5, 9, 4, 4, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 136
+  Slot lengths: 6, 5, 3, 5, 4, 5, 6, 6, 6, 6, 9, 6, 6, 5, 6, 5, 4, 6, 9, 6, 5, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 2 slots
+    Length 5: 8 slots
+    Length 6: 10 slots
+    Length 9: 2 slots
+
+Template ID: 137
+  Slot lengths: 6, 6, 3, 5, 4, 4, 6, 4, 8, 5, 5, 4, 4, 5, 6, 5, 4, 6, 8, 4, 4, 3, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 8: 2 slots
+
+Template ID: 138
+  Slot lengths: 6, 3, 5, 5, 4, 4, 4, 4, 6, 7, 4, 6, 5, 4, 4, 5, 4, 5, 7, 4, 4, 3, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+
+Template ID: 139
+  Slot lengths: 7, 6, 3, 4, 5, 4, 4, 5, 4, 7, 4, 5, 4, 4, 4, 5, 6, 5, 7, 5, 4, 3, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 140
+  Slot lengths: 6, 6, 3, 5, 5, 7, 4, 5, 4, 7, 4, 7, 4, 4, 4, 7, 6, 5, 7, 5, 7, 3, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 6 slots
+
+Template ID: 141
+  Slot lengths: 6, 6, 4, 3, 5, 6, 4, 7, 4, 6, 4, 7, 4, 4, 4, 7, 6, 6, 6, 7, 6, 3, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 2 slots
+    Length 6: 8 slots
+    Length 7: 4 slots
+
+Template ID: 142
+  Slot lengths: 6, 4, 4, 3, 6, 6, 6, 4, 7, 5, 4, 8, 4, 6, 4, 8, 6, 5, 7, 4, 6, 3, 6, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 2 slots
+    Length 6: 8 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 143
+  Slot lengths: 4, 4, 5, 3, 5, 6, 6, 4, 5, 5, 4, 8, 4, 6, 4, 8, 5, 4, 5, 4, 6, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 4 slots
+    Length 8: 2 slots
+
+Template ID: 144
+  Slot lengths: 4, 4, 5, 3, 4, 6, 6, 4, 6, 5, 4, 6, 8, 6, 4, 8, 5, 4, 4, 4, 6, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 8: 2 slots
+
+Template ID: 145
+  Slot lengths: 6, 4, 5, 3, 6, 4, 6, 6, 5, 4, 4, 8, 4, 6, 4, 8, 6, 5, 6, 4, 4, 3, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 8 slots
+    Length 8: 2 slots
+
+Template ID: 146
+  Slot lengths: 6, 4, 5, 3, 4, 4, 4, 4, 6, 5, 4, 7, 4, 4, 4, 7, 6, 5, 6, 4, 4, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+
+Template ID: 147
+  Slot lengths: 6, 4, 5, 3, 7, 6, 4, 6, 7, 5, 4, 6, 5, 4, 4, 5, 6, 5, 7, 4, 6, 3, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 148
+  Slot lengths: 6, 5, 3, 7, 5, 7, 4, 4, 5, 6, 4, 7, 4, 4, 4, 7, 6, 5, 6, 5, 7, 3, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 6 slots
+
+Template ID: 149
+  Slot lengths: 4, 5, 3, 7, 5, 6, 4, 4, 5, 4, 4, 7, 4, 4, 4, 7, 5, 4, 5, 4, 6, 3, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 150
+  Slot lengths: 4, 5, 3, 7, 5, 7, 4, 4, 4, 4, 4, 8, 4, 4, 4, 8, 5, 4, 4, 4, 7, 3, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 4 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 151
+  Slot lengths: 4, 5, 3, 5, 5, 7, 4, 6, 7, 4, 4, 7, 4, 4, 4, 7, 5, 7, 6, 4, 7, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 6 slots
+
+Template ID: 152
+  Slot lengths: 4, 5, 3, 5, 4, 7, 6, 4, 8, 4, 7, 5, 6, 4, 4, 5, 7, 4, 8, 4, 7, 3, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 153
+  Slot lengths: 3, 5, 4, 4, 4, 9, 5, 9, 7, 7, 8, 5, 4, 5, 4, 4, 4, 5, 8, 4, 5, 3, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 154
+  Slot lengths: 3, 5, 4, 4, 10, 9, 4, 10, 5, 9, 8, 5, 4, 5, 4, 4, 4, 4, 8, 4, 5, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+    Length 10: 2 slots
+
+Template ID: 155
+  Slot lengths: 5, 3, 5, 4, 9, 4, 8, 5, 9, 8, 7, 4, 4, 4, 4, 4, 4, 4, 7, 5, 5, 3, 4, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+    Length 9: 2 slots
+
+Template ID: 156
+  Slot lengths: 4, 6, 4, 6, 4, 6, 7, 4, 5, 3, 8, 5, 4, 6, 4, 6, 8, 6, 3, 4, 4, 4, 7, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 157
+  Slot lengths: 7, 4, 6, 4, 4, 7, 6, 5, 4, 3, 8, 7, 4, 6, 4, 7, 8, 6, 3, 4, 4, 4, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 158
+  Slot lengths: 5, 4, 6, 7, 8, 4, 5, 5, 4, 3, 7, 7, 4, 4, 4, 7, 6, 4, 3, 5, 5, 4, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 159
+  Slot lengths: 5, 4, 5, 7, 8, 5, 3, 5, 4, 4, 6, 7, 4, 4, 4, 6, 5, 5, 4, 5, 5, 4, 3, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 160
+  Slot lengths: 5, 7, 4, 5, 8, 5, 5, 7, 4, 4, 3, 4, 4, 4, 7, 3, 5, 5, 4, 5, 7, 4, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 8 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 161
+  Slot lengths: 7, 5, 5, 4, 8, 5, 5, 4, 4, 5, 3, 5, 4, 5, 7, 3, 5, 5, 5, 5, 4, 4, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 12 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 162
+  Slot lengths: 7, 4, 8, 4, 5, 6, 5, 6, 4, 5, 3, 4, 6, 4, 4, 7, 3, 5, 5, 4, 4, 6, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 163
+  Slot lengths: 3, 6, 6, 6, 8, 4, 6, 8, 5, 4, 8, 9, 5, 6, 5, 5, 6, 9, 6, 4, 8, 4, 3, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 4 slots
+    Length 6: 8 slots
+    Length 8: 4 slots
+    Length 9: 2 slots
+
+Template ID: 164
+  Slot lengths: 5, 6, 6, 3, 10, 6, 4, 10, 6, 5, 5, 8, 5, 5, 6, 5, 6, 8, 5, 5, 6, 3, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 2 slots
+    Length 5: 8 slots
+    Length 6: 8 slots
+    Length 8: 2 slots
+    Length 10: 2 slots
+
+Template ID: 165
+  Slot lengths: 7, 4, 9, 3, 6, 4, 6, 5, 4, 5, 6, 5, 5, 6, 4, 5, 7, 6, 5, 4, 6, 3, 4, 9
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 9: 2 slots
+
+Template ID: 166
+  Slot lengths: 6, 7, 5, 4, 6, 7, 5, 6, 5, 3, 5, 5, 4, 7, 4, 6, 5, 6, 5, 3, 4, 6, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 4 slots
+    Length 5: 8 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 167
+  Slot lengths: 7, 6, 5, 4, 7, 4, 5, 8, 4, 3, 4, 4, 4, 4, 7, 4, 6, 5, 4, 3, 4, 8, 5, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 168
+  Slot lengths: 7, 6, 5, 7, 4, 6, 5, 6, 4, 3, 4, 7, 5, 4, 5, 7, 4, 6, 5, 3, 4, 6, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 169
+  Slot lengths: 6, 5, 7, 6, 6, 4, 5, 6, 5, 3, 6, 5, 7, 5, 5, 6, 6, 6, 6, 5, 3, 6, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 2 slots
+    Length 5: 8 slots
+    Length 6: 10 slots
+    Length 7: 2 slots
+
+Template ID: 170
+  Slot lengths: 8, 4, 6, 5, 6, 6, 4, 5, 6, 3, 6, 8, 4, 6, 4, 6, 6, 5, 4, 3, 6, 4, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 4 slots
+    Length 6: 10 slots
+    Length 8: 2 slots
+
+Template ID: 171
+  Slot lengths: 7, 6, 7, 5, 4, 6, 4, 5, 6, 3, 4, 7, 4, 6, 4, 7, 4, 6, 5, 4, 3, 6, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 172
+  Slot lengths: 6, 6, 6, 5, 4, 6, 4, 5, 7, 3, 4, 4, 6, 4, 6, 6, 4, 5, 6, 4, 3, 7, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 8 slots
+    Length 7: 2 slots
+
+Template ID: 173
+  Slot lengths: 7, 6, 6, 6, 5, 4, 5, 7, 4, 3, 4, 5, 4, 5, 6, 6, 7, 4, 6, 4, 3, 7, 5, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 174
+  Slot lengths: 5, 7, 7, 7, 3, 5, 4, 7, 4, 4, 5, 7, 7, 5, 7, 5, 5, 4, 4, 5, 4, 3, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 8 slots
+    Length 7: 8 slots
+
+Template ID: 175
+  Slot lengths: 8, 8, 7, 4, 5, 4, 5, 4, 4, 7, 4, 8, 8, 5, 4, 7, 5, 4, 5, 7, 4, 4, 5, 4
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 7: 4 slots
+    Length 8: 4 slots
+
+Template ID: 176
+  Slot lengths: 5, 4, 7, 7, 7, 5, 6, 7, 4, 5, 3, 7, 7, 7, 4, 6, 4, 3, 5, 5, 4, 4, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 8 slots
+
+Template ID: 177
+  Slot lengths: 6, 4, 6, 7, 4, 5, 6, 7, 4, 5, 4, 7, 3, 6, 3, 6, 4, 6, 4, 5, 4, 4, 7, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 178
+  Slot lengths: 8, 8, 6, 4, 4, 6, 3, 7, 6, 5, 4, 8, 8, 4, 6, 4, 6, 4, 5, 4, 6, 3, 7, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 179
+  Slot lengths: 8, 5, 7, 4, 5, 4, 5, 7, 4, 7, 4, 8, 4, 3, 7, 3, 4, 5, 7, 5, 4, 7, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 7: 6 slots
+    Length 8: 2 slots
+
+Template ID: 180
+  Slot lengths: 5, 8, 5, 7, 8, 6, 3, 4, 4, 5, 4, 8, 7, 6, 6, 4, 6, 4, 5, 5, 5, 4, 3, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 6 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 4 slots
+
+Template ID: 181
+  Slot lengths: 5, 5, 5, 7, 8, 7, 6, 5, 4, 5, 3, 7, 7, 5, 6, 5, 3, 5, 5, 5, 5, 4, 5, 8
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 2 slots
+    Length 5: 12 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 182
+  Slot lengths: 4, 6, 4, 4, 5, 3, 7, 4, 4, 4, 4, 4, 7, 7, 4, 4, 6, 3, 4, 4, 4, 7, 5, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 14 slots
+    Length 5: 2 slots
+    Length 6: 2 slots
+    Length 7: 4 slots
+
+Template ID: 183
+  Slot lengths: 6, 6, 4, 4, 5, 5, 7, 4, 6, 4, 4, 4, 7, 7, 4, 4, 6, 5, 4, 4, 6, 7, 5, 6
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 184
+  Slot lengths: 7, 6, 4, 4, 4, 5, 5, 6, 7, 4, 4, 4, 7, 7, 6, 4, 5, 5, 4, 4, 7, 6, 4, 7
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 6 slots
+
+Template ID: 185
+  Slot lengths: 6, 4, 6, 4, 4, 4, 3, 6, 6, 4, 4, 4, 7, 7, 6, 4, 6, 4, 4, 6, 3, 6, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 6: 8 slots
+    Length 7: 2 slots
+
+Template ID: 186
+  Slot lengths: 4, 6, 6, 4, 5, 4, 3, 7, 6, 4, 4, 4, 7, 7, 6, 6, 4, 5, 4, 6, 3, 7, 4, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 187
+  Slot lengths: 6, 4, 6, 6, 4, 4, 7, 4, 6, 4, 3, 4, 8, 8, 4, 6, 3, 6, 4, 6, 4, 7, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 6: 8 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 188
+  Slot lengths: 4, 6, 4, 5, 4, 5, 5, 4, 8, 4, 3, 4, 8, 8, 4, 5, 3, 5, 4, 8, 4, 5, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 8: 4 slots
+
+Template ID: 189
+  Slot lengths: 4, 5, 7, 4, 6, 5, 5, 6, 3, 4, 4, 4, 8, 7, 8, 3, 4, 5, 4, 6, 4, 5, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 190
+  Slot lengths: 4, 6, 4, 6, 5, 5, 4, 7, 3, 4, 4, 4, 7, 7, 4, 3, 4, 5, 4, 7, 4, 5, 6, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 4 slots
+
+Template ID: 191
+  Slot lengths: 6, 6, 4, 4, 6, 5, 4, 7, 3, 4, 4, 4, 8, 8, 4, 3, 4, 6, 6, 4, 7, 5, 6, 4
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 192
+  Slot lengths: 6, 6, 5, 4, 7, 5, 4, 4, 6, 4, 4, 4, 7, 7, 4, 5, 4, 6, 6, 4, 6, 4, 7, 5
+  Length breakdown:
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 193
+  Slot lengths: 4, 6, 5, 4, 6, 7, 4, 4, 6, 4, 3, 4, 7, 7, 4, 4, 3, 6, 4, 6, 4, 7, 6, 5
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 4 slots
+
+Template ID: 194
+  Slot lengths: 4, 6, 6, 4, 5, 4, 4, 5, 6, 4, 3, 4, 7, 5, 7, 4, 3, 6, 4, 6, 4, 4, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+
+Template ID: 195
+  Slot lengths: 4, 6, 7, 4, 4, 4, 6, 5, 6, 4, 3, 4, 8, 5, 8, 3, 6, 4, 6, 4, 4, 6, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 2 slots
+    Length 6: 6 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 196
+  Slot lengths: 4, 7, 4, 4, 4, 5, 4, 5, 6, 4, 4, 4, 8, 5, 8, 4, 5, 4, 6, 4, 4, 4, 4, 7
+  Length breakdown:
+    Length 4: 14 slots
+    Length 5: 4 slots
+    Length 6: 2 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+
+Template ID: 197
+  Slot lengths: 4, 7, 7, 4, 4, 5, 4, 5, 4, 4, 4, 4, 8, 7, 8, 4, 4, 5, 4, 4, 4, 5, 4, 7
+  Length breakdown:
+    Length 4: 14 slots
+    Length 5: 4 slots
+    Length 7: 4 slots
+    Length 8: 2 slots
+
+Template ID: 198
+  Slot lengths: 4, 7, 7, 4, 4, 5, 7, 4, 4, 4, 3, 4, 7, 7, 7, 4, 3, 5, 4, 4, 4, 7, 4, 7
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 12 slots
+    Length 5: 2 slots
+    Length 7: 8 slots
+
+Template ID: 199
+  Slot lengths: 5, 6, 7, 4, 4, 5, 5, 7, 4, 4, 3, 4, 7, 7, 7, 5, 3, 5, 5, 4, 4, 7, 4, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 8 slots
+    Length 5: 6 slots
+    Length 6: 2 slots
+    Length 7: 6 slots
+
+Template ID: 200
+  Slot lengths: 6, 8, 4, 5, 5, 4, 7, 4, 4, 4, 3, 4, 8, 6, 6, 4, 3, 5, 4, 4, 4, 7, 5, 6
+  Length breakdown:
+    Length 3: 2 slots
+    Length 4: 10 slots
+    Length 5: 4 slots
+    Length 6: 4 slots
+    Length 7: 2 slots
+    Length 8: 2 slots
+

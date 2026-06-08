@@ -30,12 +30,26 @@ public static class CrosswordUtils
     }
     
     
-    public static HashSet<string> GetSavedAnswers(string difficulty)
+    public static HashSet<string> GetSavedAnswers(string difficulty, int maxRecent = 0)
     {
         var used = new HashSet<string>();
         if (!Directory.Exists(CrosswordsPath)) return used;
 
-        foreach (string file in Directory.GetFiles(CrosswordsPath, $"{difficulty}cw_*.json"))
+        var files = Directory.GetFiles(CrosswordsPath, $"{difficulty}cw_*.json");
+
+        if (maxRecent > 0)
+        {
+            files = files
+                .OrderByDescending(f => {
+                    var name = Path.GetFileNameWithoutExtension(f);
+                    var numStr = name.Substring(difficulty.Length + 2);
+                    return int.TryParse(numStr, out int n) ? n : 0;
+                })
+                .Take(maxRecent)
+                .ToArray();
+        }
+
+        foreach (string file in files)
         {
             string json = File.ReadAllText(file);
             CrosswordStructure cw = JsonUtility.FromJson<CrosswordStructure>(json);
@@ -72,7 +86,8 @@ public static class CrosswordUtils
 
         foreach (var positional in horizontal.Concat(vertical))
         {
-            foreach (var match in db.Entries.Where(e => e.answer.Equals(positional.entry.answer)))
+            foreach (var match in db.Entries.Where(e => e.answer.Equals(positional.entry.answer)
+                                                     && e.question.Equals(positional.entry.question)))
                 match.isUsed = true;
         }
 
