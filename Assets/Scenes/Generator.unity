@@ -10119,7 +10119,7 @@ MonoBehaviour:
   UsedHorizontalEntries: []
   UsedVerticalEntries: []
   SelectedDifficulty: easy
-  CrosswordsToGenerate: 10
+  CrosswordsToGenerate: 100
 --- !u!1001 &980970704
 PrefabInstance:
   m_ObjectHideFlags: 0

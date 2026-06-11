@@ -13,7 +13,9 @@
       "Bash(Select-String -Path \"C:\\\\Unity\\\\CrossWaves\\\\Assets\\\\Scenes\\\\Main.unity\" -Pattern \"^--- !u!224 &3724125621962497945\")",
       "Bash(Select-Object -First 1)",
       "Bash(powershell *)",
-      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Unity\\\\CrossWaves\\\\Assets\" -Directory | Where-Object { $_.Name -match \"Persistent|Data|Save|ScriptableObject\" } | Select-Object FullName)"
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Unity\\\\CrossWaves\\\\Assets\" -Directory | Where-Object { $_.Name -match \"Persistent|Data|Save|ScriptableObject\" } | Select-Object FullName)",
+      "Bash(python3 *)",
+      "Skill(run)"
     ]
   }
 }

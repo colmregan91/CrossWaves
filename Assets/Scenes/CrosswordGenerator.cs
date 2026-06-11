@@ -15,7 +15,7 @@ public class CrosswordGenerator : MonoBehaviour
     public List<CrosswordEntryPositional> UsedVerticalEntries = new List<CrosswordEntryPositional>();
 
     public string SelectedDifficulty = "easy";
-    public int CrosswordsToGenerate = 10;
+    public int CrosswordsToGenerate = 90;
 
     // Abandon a single template attempt after this many failed candidate placements.
     // Triggers a reshuffle-and-retry of the same template.
@@ -67,6 +67,21 @@ public class CrosswordGenerator : MonoBehaviour
                 .GroupBy(e => e.answer.Length)
                 .ToDictionary(g => g.Key, g => g.ToList());
 
+            // If the pool is too thin to fill any template, reset isUsed in memory.
+            // recentAnswers still prevents repeats in nearby crosswords.
+            if (!available.Any(t => CanPotentiallyFill(t, poolsByLength)))
+            {
+                foreach (var e in database.Entries) e.isUsed = false;
+                poolsByLength = database.Entries
+                    .Where(e => e.difficulty == SelectedDifficulty
+                             && !recentAnswers.Contains(e.answer)
+                             && e.answer.Length >= 3
+                             && e.answer.Length <= MaxGridX)
+                    .GroupBy(e => e.answer.Length)
+                    .ToDictionary(g => g.Key, g => g.ToList());
+                UnityEngine.Debug.Log("Word pool exhausted — reset isUsed in memory for remainder of batch.");
+            }
+
             var screened = available.Where(t => CanPotentiallyFill(t, poolsByLength)).ToArray();
             var toTry = screened.Length > 0 ? screened.ToList() : available.ToList();
             Shuffle(toTry);
@@ -100,7 +115,19 @@ public class CrosswordGenerator : MonoBehaviour
 
             if (!filled)
             {
-                UnityEngine.Debug.LogWarning($"Crossword {i + 1}: could not fill any template — skipping.");
+                // Max slots of each length required by any single template
+                var maxNeeded = toTry
+                    .SelectMany(t => t.slots.GroupBy(s => s.length).Select(g => new { len = g.Key, count = g.Count() }))
+                    .GroupBy(x => x.len)
+                    .OrderBy(g => g.Key)
+                    .Select(g =>
+                    {
+                        int required = g.Max(x => x.count);
+                        int avail = poolsByLength.TryGetValue(g.Key, out var p) ? p.Count : 0;
+                        string flag = avail < required ? "!" : "";
+                        return $"{flag}len{g.Key}: need {required}, have {avail}";
+                    });
+                UnityEngine.Debug.LogWarning($"Crossword {i + 1}: could not fill — {string.Join(" | ", maxNeeded)}");
                 yield return null;
                 continue;
             }
@@ -524,16 +551,16 @@ public class CrosswordGenerator : MonoBehaviour
 
     // ─── Template-ID persistence (unchanged) ─────────────────────────────────
 
-    private HashSet<int> LoadUsedTemplateIds(string difficulty)
+    private HashSet<int> LoadUsedTemplateIds(string difficulty, string tag = "")
     {
-        string fp = Path.Combine(Application.persistentDataPath, "Grids", $"usedTemplates_{difficulty}.json");
+        string fp = Path.Combine(Application.persistentDataPath, "Grids", $"usedTemplates{tag}_{difficulty}.json");
         if (!File.Exists(fp)) return new HashSet<int>();
         return new HashSet<int>(JsonUtility.FromJson<UsedTemplateIdList>(File.ReadAllText(fp)).ids);
     }
 
-    private void SaveUsedTemplateIds(string difficulty, HashSet<int> ids)
+    private void SaveUsedTemplateIds(string difficulty, HashSet<int> ids, string tag = "")
     {
-        string fp = Path.Combine(Application.persistentDataPath, "Grids", $"usedTemplates_{difficulty}.json");
+        string fp = Path.Combine(Application.persistentDataPath, "Grids", $"usedTemplates{tag}_{difficulty}.json");
         File.WriteAllText(fp, JsonUtility.ToJson(new UsedTemplateIdList { ids = ids.ToList() }));
     }
 
